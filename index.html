@@ -11,14 +11,24 @@
 <body>
   <div id="app"></div>
   <script>
+
+    var docBase = "https://github.com/krot-at/docs/blob/master/docs/";
+    var docEditBase  = null
+    var title = "Edit on Github"
     window.$docsify = {
       name: 'captcha',
       repo: 'krot-at/docs',
       logo: '/_media/logo.svg',
       loadSidebar: true,
+      plugins: [
+            EditOnGithubPlugin.create(docBase, docEditBase, title)
+            ]
     }
   </script>
   <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 </body>
 </html>
