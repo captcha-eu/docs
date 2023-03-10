@@ -2,11 +2,8 @@
 
 * [Introduction](/)
 * [Integration](install.md)
-* [Client Side Requirements](client.md)
-* [OpenAPI](openapi.md)
+* [Browser Requirement](client.md)
 * [🇪🇺 GDPR](gdpr.md)
-* [Machine Learning](ml.md)
-* [Testing](testing.md)
 * [Testing](testing.md)
 * **More**
   * [Dashboard](https://www.captcha.eu/dashboard)
