@@ -2,8 +2,6 @@
 
 * [Introduction](/)
 * [Integration](install.md)
-  * [Javascript API](javascript.md)
-  * [Verification](verification.md)
 * [Client Side Requirements](client.md)
 * [OpenAPI](openapi.md)
 * [🇪🇺 GDPR](gdpr.md)

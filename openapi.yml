@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Captcha.at
+  description: |-
+    API Client to Validate a captcha
+  termsOfService: https://captcha.at
+  contact:
+    email: hey@captcha.at
+  license:
+    name: MIT
+  version: "0.1.0"
+externalDocs:
+  description: More captcha-docs
+  url: https://docs.captcha.at
+servers:
+  - url: https://w19.captcha.at
+tags:
+  - name: validation
+paths:
+  /validate:
+    post:
+      tags:
+        - validation
+      summary: Validate
+      description: Validate a given captcha solution
+      operationId: validate
+      requestBody:
+        description: Send a client side puzzle solution and validate it against all rules
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Validation'
+        required: true
+      responses:
+        '403':
+          description: "Rest Key False"
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResult'          
+      security:
+        - api_key:
+          - "v"
+
+components:
+  schemas:
+    Validation:
+      type: object
+      properties:
+        challenge:
+          type: string
+          format: string
+          example: "xxxxxxx"
+        nonce:
+          type: string
+          format: string
+          example: "xxxx"
+        hash:
+          type: string
+          format: string
+          example: "xxxx"
+    ValidationResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+          format: int64
+          example: true
+        
+  securitySchemes:
+    api_key:
+      type: apiKey
+      description: Api Key
+      name: Rest-Key
+      in: header
+
