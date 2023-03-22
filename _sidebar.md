@@ -1,10 +1,27 @@
 <!-- docs/_sidebar.md -->
 
 * [Introduction](/)
-* [Integration](install.md)
-* [Browser Requirement](client.md)
-* [🇪🇺 GDPR](gdpr.md)
-* [Testing](testing.md)
-* [FAQ](faq.md)
-* **More**
-  * [Dashboard](https://www.captcha.eu/dashboard)
+
+**Integration**
+
+* [:bulb: Getting started (quick tour)](dashboard_quicktour.md)
+* [:hammer_and_wrench: Wordpress integration](wordpress-install.md)
+* [:hammer_and_wrench: Website integration](install.md)
+* [:eyes: Testing](testing.md)
+* [:fire: Troubleshooting](troubleshoot.md)
+
+**Dashboard**
+* [:bulb: Getting started (quick tour)](dashboard_quicktour.md)
+* :level_slider: Settings
+* :bar_chart: Statistics
+* :coin: Billing
+
+**Further infos**
+* [:information_source: Browser Requirement](client.md)
+* [:question: FAQ](faq.md)
+* [:spiral_notepad: Changelog](changelog.md)
+* :mailbox: Contact
+
+**Links**
+* [:bookmark: captcha.eu website](https://www.captcha.eu)
+* :bookmark: Github Wordpress Plugin

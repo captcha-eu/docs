@@ -3,4 +3,8 @@
 
 See [Our approach to detect/classify bots](ml.md)
 
+This document will help you to integrate
+
+If you are using Wordpress. Nothing easer than that. We offer a free Wordpress plugin
+
 **[captcha.eu](https://www.captcha.eu) is fully GDPR compliant.**
