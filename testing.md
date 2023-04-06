@@ -1,13 +1,14 @@
 # Testing
-in order to have integration tests sill working while using the captcha.eu protection.
-you have multiple options.
 
+To ensure that integration tests continue to work while using the captcha.eu protection, you have multiple options.
 
 ## Self-Made
-detect the Unit/Integration/Automation-Test yourself, and ignore the response of the validation endpoint (or completly skip the call)
 
+You can detect the unit, integration, or automation test yourself and ignore the response of the validation endpoint (or completely skip the call).
 
-## ByPass Key
-there is a special `ByPass` key that you can get inside the dashboard. if you supply the `ByPass` as a solution, in the verification call the call will always succeed
+## Bypass Key
 
-> this still bills your calls
+You can obtain a special "Bypass" key in the dashboard. If you supply the Bypass key as a solution in the verification call, the call will always succeed.
+
+> Note that this still counts as a call.
+

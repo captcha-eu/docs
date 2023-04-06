@@ -1,28 +1,34 @@
 # Integration
-the captcha.eu integration should always consist of two pieces:
-  - client side solution generation
-  - server side validation of the generated solution
+
+To integrate captcha.eu, there are two components you need to include: client-side solution generation and server-side solution validation. Here's how to set it up:
+
+
 
 ## Client Side
 
 
 ### Javascript
+Include the following script at the bottom of your page, or in any document.ready handler:
 
-
-### Setup
 
 
 ```html
 <script type="text/javascript" src="https://api.captcha.eu/sdk/sdk.js" defer></script>
 ```
 
-> at the bottom of your page, or in any sort of document.ready handler.
+Then, set up the Captcha-eu client-side SDK with your public key:
+
+
+
 ```js
 KROT.setup("xx-MY-PUBLIC-KEY");
 ```
 
-### Generate Solution Payload
-whenever you want to validate that the end user is not a bot, call.
+
+To generate a solution payload for server-side validation, call `KROT.getSolution()`:
+
+
+
 
 ```javascript
 KROT.getSolution()
@@ -36,29 +42,29 @@ KROT.getSolution()
     });
 ```
 
-for most `<form>` based things there is a pre-built shorthand.
+If you're using a form, you can use the pre-built shorthand:
+
+
 
 ```javascript
 var form = document.getElementById("login");
 KROT.interceptForm(form);
 ```
 
-this will  add a hidden field `captcha_at_solution` and intercept the submit buttons.
-on submit it sets the buttons to `disabled`  runs the solution generator, adds the response to the `captcha_at_solution`  field
-and after successfully solving it will submit the form.
+This adds a hidden field `captcha_at_solution` and intercepts the submit buttons. On submit, it sets the buttons to disabled, runs the solution generator, adds the response to the `captcha_at_solution` field, and after successful solving, submits the form.
+
 
 
 ## Server Side
 
-To validate the given solution, you need to make a rest call to the captcha.eu validation endpoint.
-below are examples of some programming languages, but a rest-call is enough, feel free to PR a sample in your :heart: language
+To validate the given solution, make a REST call to the captcha.eu validation endpoint. Here are examples for several programming languages:
 
-the data payload needs to be the unmodified version of the client-side solution generation (only `.stringify()`) as the payload is highly dynamic 
-and always subject of change.
-
-the response is a JSON:
 
 ### Validation Response
+
+The response to the validation request is a JSON object with a success property:
+
+
 
 ```javascript 
 {
@@ -79,7 +85,7 @@ curl -X POST \
 
 
 ### PHP
-> use the http client of your choice, below sample is a raw-curl one, and should not be 1:1 copied to production
+Use the HTTP client of your choice. Here is an example using raw cURL, which should not be copied to production:
 
 ```php
 <?php
