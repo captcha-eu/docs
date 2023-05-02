@@ -6,6 +6,7 @@
 
 * [:bulb: Getting started (quick tour)](dashboard_quicktour.md)
 * [:hammer_and_wrench: Wordpress integration](wordpress-install.md)
+* [:hammer_and_wrench: (**beta**) Joomla integration](joomla-install.md)
 * [:hammer_and_wrench: Website integration](install.md)
 * [:eyes: Testing](testing.md)
 <!-- * [:fire: Troubleshooting](troubleshoot.md) -->
