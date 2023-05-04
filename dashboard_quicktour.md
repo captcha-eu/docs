@@ -6,9 +6,11 @@
 
 2. **Purchase a subscription**: Choose the subscription plan that suits your needs and purchase it through our website.
 
-3. **Copy the snippet and keys into your webpage**: Integrate captcha.eu into your website by copying the provided snippet and API keys into your webpage. The specific implementation details can be found in [integration](integration).
+3. **Create Domains**: Create the domains that you'd want to have.
 
-4. **Enjoy having your site protected by captcha.eu**: You're all set! captcha.eu will now protect your site from bots, keeping it safe and secure.
+4. **Copy the snippet and keys into your webpage**: Integrate captcha.eu into your website by copying the provided snippet and API keys into your webpage. The specific implementation details can be found in [integration](integration) - make sure you use the correct keys for the correct domain.
+
+5. **Enjoy having your site protected by captcha.eu**: You're all set! captcha.eu will now protect your site from bots, keeping it safe and secure.
 
 If you have any questions or encounter any issues during the onboarding process, please don't hesitate to contact our support team. 
 
