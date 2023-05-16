@@ -19,6 +19,7 @@
 <!-- * :coin: Billing -->
 
 **Further infos**
+* [:🇦🇹: 100% Austria Path](at-traffic.md)
 * [:information_source: Browser Requirement](client.md)
 <!-- * [:question: FAQ](faq.md) -->
 <!-- * [:spiral_notepad: Changelog](changelog.md) -->
