@@ -9,6 +9,7 @@
 * [:hammer_and_wrench: (**beta**) Joomla integration](joomla-install.md)
 * [:hammer_and_wrench: (**beta**) KeyCloak integration](keycloak-install.md)
 * [:hammer_and_wrench: Website integration](install.md)
+* [:hammer_and_wrench: NPM Package](npm.md)
 * [:eyes: Testing](testing.md)
 <!-- * [:fire: Troubleshooting](troubleshoot.md) -->
 
