@@ -11,6 +11,7 @@
 * [:hammer_and_wrench: Website integration](install.md)
 * [:hammer_and_wrench: NPM Package](npm.md)
 * [:eyes: Testing](testing.md)
+* [:octopus: On-Premise Proxy](proxy.md)
 <!-- * [:fire: Troubleshooting](troubleshoot.md) -->
 
 <!-- **Dashboard** -->
