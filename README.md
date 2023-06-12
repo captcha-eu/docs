@@ -6,7 +6,7 @@ The purpose of this document is to provide assistance with integrating **[captch
 
 If you are using Wordpress, integrating **[captcha.eu](https://www.captcha.eu/)** is straightforward. We offer a free Wordpress plugin that can be easily installed and configured to protect your website. 
 
-For non-Wordpress websites, the integration process involves adding a few lines of JavaScript code to the website's HTML. The specific implementation details can be found on our [integration](integration). 
+For non-Wordpress websites, the integration process involves adding a few lines of JavaScript code to the website's HTML. The specific implementation details can be found on our [integration](install). 
 
 ## GDPR Compliance
 
