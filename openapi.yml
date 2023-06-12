@@ -47,20 +47,8 @@ paths:
 components:
   schemas:
     Validation:
-      type: object
-      properties:
-        challenge:
-          type: string
-          format: string
-          example: "xxxxxxx"
-        nonce:
-          type: string
-          format: string
-          example: "xxxx"
-        hash:
-          type: string
-          format: string
-          example: "xxxx"
+      type: string
+      example: RAW_SOLUTION_FROM_JS
     ValidationResult:
       type: object
       properties:
