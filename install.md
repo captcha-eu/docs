@@ -118,4 +118,4 @@ Use the HTTP client of your choice. Here is an example using raw cURL, which sho
 
 ### OpenAPI (Swagger)
 
-for use with OpenAPI generators please use [this](https://raw.githubusercontent.com/krot-at/docs/master/openapi.yml)
+for use with OpenAPI generators please use [this](https://raw.githubusercontent.com/captcha-eu/docs/master/openapi.yml)
