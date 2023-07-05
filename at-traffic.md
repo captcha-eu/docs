@@ -1,6 +1,6 @@
-# 100% austria path
+# :austria: 100% Austria path
 
-we use a CDN to globally distribute and orchestrate the traffic to our (in in austria hosted) servers.
-however if you are feeling uncomfortable to use the CDN-Path feel free to use the 100% AT-Network-Path:
+We use a CDN to globally distribute and orchestrate the traffic to our (in Austria hosted) servers.
+However if you are feeling uncomfortable using the CDN-Path, feel free to use the 100% AT-Network-Path:
 
-  - use `https://at.captcha.at`  as a endpoint.
+  - In this case, just use `https://at.captcha.at` as endpoint.

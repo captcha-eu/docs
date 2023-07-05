@@ -1,9 +1,9 @@
 # NPM
 
-to use captcha.eu with the npm hosted package use one of the following snippets.
+To use captcha.eu with the npm hosted package use one of the following snippets.
 
-## install
-```js
+## Install
+```sh
 npm install --save captcha-eu-sdk
 ```
 
@@ -27,5 +27,5 @@ import { KROT } from 'captcha-eu-sdk';
 KROT.init();
 ```
 
-for further details on how to use the JS sdk proceed [here](install.md#javascript)
+For further details on how to use the JS sdk proceed [here](install.md#javascript)
 

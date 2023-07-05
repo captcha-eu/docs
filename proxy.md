@@ -19,7 +19,7 @@ proxy.yourdomain.com {
 
 ## NGINX
 
-But we also love NGINX.
+But we also love [NGINX](https://www.nginx.com/).
 
 ```
 server {

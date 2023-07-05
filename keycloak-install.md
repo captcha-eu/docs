@@ -2,23 +2,23 @@
 
 KeyCloak is in beta, to participate in the beta and get access to the source/jar plugin please contact hello@captcha.eu. we are happy to bring you in the beta team.
 
-the extension, provides captcha.eu support for the following keycloak parts/flows:
+The extension, provides captcha.eu support for the following keycloak parts/flows:
 
-- browser (login)
-- registration
-- reset-credentials
+- Browser (login)
+- Registration
+- Reset-credentials
 
-you just follow a few steps and your keycloak is ready to use captcha.eu
+You just follow a few steps and your keycloak is ready to use captcha.eu
 
 ## Obtain the Extension
 
-contact hello@captch.eu
+Contact hello@captch.eu
 
 ```sh
 mvn package
 ```
 
-put the resulting `target/keycloak-captcha.jar` into your extension folder and restart keycloak.
+Put the resulting `target/keycloak-captcha.jar` into your extension folder and restart keycloak.
 
 ## Configure the Authentication Flows
 
@@ -45,7 +45,7 @@ put the resulting `target/keycloak-captcha.jar` into your extension folder and r
 
 - Enable the Frontend Code:
 
-you either add the following snippet to your existing - `login.ftl`
+You either add the following snippet to your existing - `login.ftl`
 right after the `</form>` closing tag.
 
 ```html
@@ -65,7 +65,7 @@ right after the `</form>` closing tag.
 </#if>
 ```
 
-you could optionally use our theme, that ships with the extension source code and is located in `theme/captcha`
+You could optionally use our theme, that ships with the extension source code and is located in `theme/captcha`
 
 **Login is now Protected by Captcha.eu**
 
