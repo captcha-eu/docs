@@ -20,7 +20,7 @@ Then, set up the Captcha-eu client-side SDK with your public key:
 
 
 
-```js
+```javascript
 KROT.setup("xx-MY-PUBLIC-KEY");
 ```
 
@@ -34,7 +34,7 @@ To generate a solution payload for server-side validation, call `KROT.getSolutio
 KROT.getSolution()
     .then((solution) => {
       // Send this solution to the server.
-      // it needs to be JSON.stringify() 
+      // it needs to be JSON.stringify()
       fetch("https://your-server.com/your/endpoint", {
         method: "POST",
         body: JSON.stringify(solution),
@@ -66,13 +66,13 @@ The response to the validation request is a JSON object with a success property:
 
 
 
-```javascript 
+```javascript
 {
   "success": true
 }
 ```
 
-### cURL 
+### cURL
 
 ```sh
 #!/bin/bash
@@ -113,9 +113,9 @@ Use the HTTP client of your choice. Here is an example using raw cURL, which sho
       echo "Captcha.eu validation failed";
       exit;
     }
-    ?>
+?>
 ```
 
 ### OpenAPI (Swagger)
 
-for use with OpenAPI generators please use [this](https://raw.githubusercontent.com/captcha-eu/docs/master/openapi.yml)
+For use with OpenAPI generators please use [this](https://raw.githubusercontent.com/captcha-eu/docs/master/openapi.yml).
