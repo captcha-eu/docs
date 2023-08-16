@@ -51,3 +51,34 @@ You can configure the default captcha under: `System->Global Configuration->Glob
 
 To enable it on contact forms, go to `System->Global Configuration->Contacts->Forms`  and select the captcha.eu
 ![contacts captcha](files/joomla/s5.png)
+
+
+## RSForms! (beta)
+> this is a beta plugin, we are happy to receive feedback -> hello@captcha.eu
+
+
+download the zip ball <a href='files/joomla/rsfpcaptchaeu.zip'>here</a>
+
+Install the zip  in the `System->Extensions->Install`
+
+![rsforms1](files/joomla/rsforms1.png)
+
+
+Enable the RSForms! Captcha.eu extension
+
+![rsforms2](files/joomla/rsforms2.png)
+
+configure the Extension
+
+![rsforms3](files/joomla/rsforms3.png)
+
+add a field to your RSForm! Form
+*caption and description should be empty*
+
+![rsforms2](files/joomla/rsforms4.png)
+
+
+No go to your frontend and see captcha.eu in action on your form
+
+
+
