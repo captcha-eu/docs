@@ -20,8 +20,14 @@ plugin.tx_captchaeu.restkey = 6LdsBBUTAAAAAKMhaaaainzeAvzBh5JdRRxlCwbyy
 ### Activate
 
 Add a new Field "captcha.eu" to your form's where you'd like to have the protection.
+
+
 the label and position of the field is irrelevant, it just needs to be in the form.
+
+
 the field itself is invisible in the frontend.
+
+<img src="files/typo3/powermail.png">
 
 ### Notes and best practice
 
