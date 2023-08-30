@@ -53,7 +53,7 @@ To enable it on contact forms, go to `System->Global Configuration->Contacts->Fo
 ![contacts captcha](files/joomla/s5.png)
 
 
-## RSForms! (beta)
+## RSForms! <sup>**beta**</sup>
 > this is a beta plugin, we are happy to receive feedback -> hello@captcha.eu
 
 

@@ -9,6 +9,7 @@
 * [:hammer_and_wrench: Joomla](joomla-install.md)
 * [:hammer_and_wrench: Adobe Commerce](adobecommerce-magento2-install.md)
 * [:hammer_and_wrench: KeyCloak <sup>**beta**</sup>](keycloak-install.md)
+* [:hammer_and_wrench: Typo3 <sup>**beta**</sup>](typo3-install.md)
 * [:hammer_and_wrench: Website Snippet](install.md)
 * [:hammer_and_wrench: NPM Package](npm.md)
 * [:eyes: Testing](testing.md)
