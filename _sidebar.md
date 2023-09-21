@@ -5,14 +5,15 @@
 **Integration**
 
 * [:bulb: Getting started](dashboard_quicktour.md)
-* [:hammer_and_wrench: WordPress](wordpress-install.md)
-* [:hammer_and_wrench: Joomla](joomla-install.md)
-* [:hammer_and_wrench: Adobe Commerce](adobecommerce-magento2-install.md)
-* [:hammer_and_wrench: WoltLab Suite™ <sup>**beta**</sup>](woltlab-suite-install.md)
-* [:hammer_and_wrench: KeyCloak <sup>**beta**</sup>](keycloak-install.md)
-* [:hammer_and_wrench: Typo3 <sup>**beta**</sup>](typo3-install.md)
-* [:hammer_and_wrench: Website Snippet](install.md)
-* [:hammer_and_wrench: NPM Package](npm.md)
+* [:earth_americas: Integration](install.md)
+* [:bear: NPM Package](npm.md)
+* Platforms
+  * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/174881.png" width=27> WordPress](wordpress-install.md)
+  * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/186_Joomla-512.webp" width=27>  Joomla](joomla-install.md)
+  * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/44i5w3tet3alslf0b45p4nxxypah.png" width=27> Adobe Commerce](adobecommerce-magento2-install.md)
+  * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/Bildschirmfoto-2023-09-21-um-15.02.52.png" width=27> WoltLab Suite™](woltlab-suite-install.md)
+  * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/Keycloak_Logo.png" width=27> KeyCloak <sup>**beta**</sup>](keycloak-install.md)
+  * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/file-type-typo3-icon-2021x2048-tqvhn32e.png" width=27> Typo3 <sup>**beta**</sup>](typo3-install.md)
 * [:eyes: Testing](testing.md)
 * [:octopus: On-Premise Proxy](proxy.md)
 <!-- * [:fire: Troubleshooting](troubleshoot.md) -->

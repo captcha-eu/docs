@@ -1,5 +1,6 @@
+
 > as of now <b>only</b> powermail is supported in a beta fashion.
-## PowerMail <sup>beta<sup>
+## <img src="https://wp.captcha.eu/wp-content/uploads/2023/09/powermail_10.7.3.svg" width=27> PowerMail <sup>beta<sup>
 
 ### Install
 add the dependency
