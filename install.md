@@ -196,6 +196,7 @@ depending on the result, reject or accept the request
 
 #### **Node**
 
+```js
 const http = require('http');
 const axios = require('axios');
 
@@ -216,13 +217,13 @@ function checkSolution(solution) {
       return false;
     });
 }
-
+```
 
 
 
 #### **Rust**
 
-```
+```rust
 use serde::Deserialize;
 use reqwest::Client;
 
