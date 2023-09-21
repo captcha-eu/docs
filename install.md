@@ -64,7 +64,53 @@ This adds a hidden field `captcha_at_solution` and intercepts the submit buttons
 
 #### **React**
 
-REACT Sample
+```js
+
+import { useState } from "react";
+import { useEffect } from "react";
+
+export default function CaptchaValidationPage(props) {
+  const [captchaSDKLoaded, setCaptchaSDKLoaded] = useState(false);
+  // Load SDK
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.captcha.eu/sdk.js";
+    script.async = true;
+    script.onload = () => {
+      // ADD YOUR CAPTCHA.EU PUBLIC KEY
+      KROT.setup("xxxx");
+      setCaptchaSDKLoaded(true);
+    };
+    document.body.appendChild(script);
+  }, []);
+
+  // This generates a solution
+  // solution should be added to the form/payload and
+  // later on validated on the server
+  function getSolution() {
+    KROT.getSolution().then((s) => {
+       var solution = JSON.stringify(s)
+       // send solution to the backend
+    });
+  }
+  if (!captchaSDKLoaded) {
+    return <>SDK Loading</>;
+  }
+
+  return (
+    <>
+      <button onClick={getSolution}>Get a solution</button>
+    </>
+  );
+}
+
+
+```
+
+#### **NextJS**
+
+see a full sample frontend+backend here: https://codesandbox.io/p/sandbox/confident-maria-vgq2gg
+
 
 <!-- tabs:end -->
 
@@ -252,6 +298,9 @@ curl -X POST \
 
 For use with OpenAPI generators please use [this](https://raw.githubusercontent.com/captcha-eu/docs/master/openapi.yml).
 
+#### **NextJS**
+
+see a full sample frontend+backend here: https://codesandbox.io/p/sandbox/confident-maria-vgq2gg
 
 
 <!-- tabs:end -->
