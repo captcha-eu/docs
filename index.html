@@ -63,8 +63,36 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
   <script>
     // Initialize the default attribute listener
-    classChange.attrs();
+  //  classChange.attrs();
   </script>
+
+        <script>
+      (function(d,t) {
+        var BASE_URL="https://chat.captcha.eu";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'eKEz7Nef7hFbRXTvzVsRvX3L',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    </script>
+
+    <script async defer src="https://stats.captcha.eu/proxy.js"></script>
+    <noscript
+        ><img
+        src="https://stats.captcha.eu/noscript.gif"
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"
+        /></noscript>
+
+
+
 </body>
 
 </html>
