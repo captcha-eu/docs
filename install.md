@@ -121,6 +121,8 @@ see a full sample frontend+backend here: https://codesandbox.io/p/sandbox/confid
 
 To validate the given solution, make a REST call to the captcha.eu validation endpoint. Here are examples for several programming languages:
 
+> For use with OpenAPI generators please use <a href="https://docs.captcha.eu/openapi.yml" target="_blank">openapi.yml</a>
+
 <!-- tabs:start -->
 
 #### ** PHP **
@@ -295,9 +297,6 @@ curl -X POST \
   https://w19.captcha.at/validate
 ```
 
-#### **OpenAPI/Swagger**
-
-For use with OpenAPI generators please use [this](https://raw.githubusercontent.com/captcha-eu/docs/master/openapi.yml).
 
 #### **NextJS**
 
@@ -372,7 +371,7 @@ public class CaptchaValidation {
 
 #### **Python**
 
-```python
+```
 import requests
 
 def check_solution(solution):
@@ -381,10 +380,10 @@ def check_solution(solution):
         "Content-Type": "application/json",
         "Rest-Key": "YOUR-REST-KEY"  # Replace with your actual REST API key
     }
-    
+
     try:
         response = requests.post(url, data=solution, headers=headers)
-        
+
         if response.status_code == 200:
             result = response.json()
             if result.get("success"):
