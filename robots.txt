@@ -1,0 +1,6 @@
+User-Agent: *
+Sitemap: https://docs.captcha.eu/sitemap.xml
+
+Allow: /
+
+
