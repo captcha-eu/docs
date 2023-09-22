@@ -304,6 +304,106 @@ For use with OpenAPI generators please use [this](https://raw.githubusercontent.
 see a full sample frontend+backend here: https://codesandbox.io/p/sandbox/confident-maria-vgq2gg
 
 
+#### **Java**
+
+```java
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class CaptchaValidation {
+
+    public static boolean checkSolution(String solution) {
+        try {
+            URL url = new URL("https://w19.captcha.at/validate");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+            // Set the request method to POST
+            connection.setRequestMethod("POST");
+
+            // Set request headers
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Rest-Key", "YOUR-REST-KEY");
+
+            // Enable input/output streams
+            connection.setDoOutput(true);
+
+            // Write the solution data to the request
+            DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream());
+            outputStream.writeBytes(solution);
+            outputStream.flush();
+            outputStream.close();
+
+            // Get the response code
+            int responseCode = connection.getResponseCode();
+
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                // Read the response
+                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                // Parse the JSON response using Gson
+                JsonObject jsonObject = JsonParser.parseString(response.toString()).getAsJsonObject();
+                if (jsonObject.has("success") && jsonObject.get("success").getAsBoolean()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                // Handle the error case here
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+```
+
+#### **Python**
+
+```python
+import requests
+
+def check_solution(solution):
+    url = "https://w19.captcha.at/validate"
+    headers = {
+        "Content-Type": "application/json",
+        "Rest-Key": "YOUR-REST-KEY"  # Replace with your actual REST API key
+    }
+    
+    try:
+        response = requests.post(url, data=solution, headers=headers)
+        
+        if response.status_code == 200:
+            result = response.json()
+            if result.get("success"):
+                return True
+            else:
+                return False
+        else:
+            # Handle the error case here
+            return False
+    except Exception as e:
+        print(e)
+        return False
+
+# Unmodified response from the client part
+solution = ""  # Replace with your solution data
+valid = check_solution(solution)
+
+```
+
 <!-- tabs:end -->
 
 
