@@ -14,6 +14,8 @@
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/Bildschirmfoto-2023-09-21-um-15.02.52.png" width=27> WoltLab Suite™](woltlab-suite-install.md)
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/Keycloak_Logo.png" width=27> KeyCloak <sup>**beta**</sup>](keycloak-install.md)
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/file-type-typo3-icon-2021x2048-tqvhn32e.png" width=27> Typo3 <sup>**beta**</sup>](typo3-install.md)
+* Frameworks
+  * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/10/PHP-logo.svg.png" width=27> PHP](php.md)
 * [:eyes: Testing](testing.md)
 * [:octopus: On-Premise Proxy](proxy.md)
 <!-- * [:fire: Troubleshooting](troubleshoot.md) -->
