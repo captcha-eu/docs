@@ -64,16 +64,16 @@ You will obtain a REST and Public-Key that you need to add in the backend.
 
 <br />
 
-In your Typo3 CMS, go to `Sites Management -> Sites -> Captcha.eu` in order to enter your keys.
+In your TYPO3 CMS, go to `Sites Management -> Sites -> Captcha.eu` in order to enter your keys.
 
-![Typo3 Site Configuration](files/typo3/typo3-site-config.png)
+![TYPO3 Site Configuration](files/typo3/typo3-site-config.png)
 
 If you want to protect a form with Captcha.eu, just insert the Captcha.eu element listed under `Advanced Elements` in the form editor.
 
-![Typo3 Form Builder 1](files/typo3/typo3-form-element.png)
+![TYPO3 Form Builder 1](files/typo3/typo3-form-element.png)
 
 You will now see the Captcha.eu-Element inserted into you form.
 
-![Typo3 Form Builder 2](files/typo3/typo3-form-config.png)
+![TYPO3 Form Builder 2](files/typo3/typo3-form-config.png)
 
 After saving, Captcha.eu will now protect any submission.
