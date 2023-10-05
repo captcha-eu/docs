@@ -16,6 +16,8 @@ inside webflow designer, find your form block, in the settings, configure the ac
 
 below the "submit" button add a custom HTML Embed 
 
+*Make sure you configure FORM_HOST and PUBLIC-SECRET*
+
 <img src="files/webflow/webflow-snippet1.png">
 
 ```js
@@ -66,6 +68,9 @@ KROT.setup("PUBLIC SECRET");
 since webflow as of now does not support custom server-side code.
 here is an example, of how you could handle the validation+submit:
 
+
+
+*Make sure you configure REST Key and formName*
 
 ```php
 <?php
