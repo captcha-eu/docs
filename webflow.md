@@ -79,7 +79,7 @@ function fail_request() {
     header("HTTP/1.1 403 Forbidden");    
     exit;
 }
-function checkSolution($solution) {
+function checkSolution($solution, $restKey) {
     $ch = curl_init("https://w19.captcha.at/validate");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $solution);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Rest-Key: ' . $restKey));
@@ -103,7 +103,7 @@ if(!isset($_POST["captcha_at_solution"]) || empty($_POST["captcha_at_solution"])
     fail_request();
 }
 
-$valid = checkSolution($_POST["captcha_at_solution"]);
+$valid = checkSolution($_POST["captcha_at_solution"], $restKey);
 if(!$valid) {
     fail_request();
 }
