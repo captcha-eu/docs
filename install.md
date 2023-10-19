@@ -317,6 +317,7 @@ import java.net.URL;
 public class CaptchaValidation {
 
     public static boolean checkSolution(String solution) {
+
         try {
             URL url = new URL("https://w19.captcha.at/validate");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -326,17 +327,23 @@ public class CaptchaValidation {
 
             // Set request headers
             connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("Rest-Key", "YOUR-REST-KEY");
+            connection.setRequestProperty("Rest-Key", "REST-KEY");
 
             // Enable input/output streams
             connection.setDoOutput(true);
 
             // Write the solution data to the request
             DataOutputStream outputStream = new DataOutputStream(connection.getOutputStream());
-            outputStream.writeBytes(solution);
+            // Get the raw bytes of the string using UTF-8 encoding.
+            byte[] solutionBytes = solution.getBytes(StandardCharsets.UTF_8);
+            
+            // Write the bytes to the dataOutputStream.
+            outputStream.write(solutionBytes);
+
             outputStream.flush();
             outputStream.close();
 
+            System.out.println(connection.getResponseCode());
             // Get the response code
             int responseCode = connection.getResponseCode();
 
@@ -353,9 +360,12 @@ public class CaptchaValidation {
 
                 // Parse the JSON response using Gson
                 JsonObject jsonObject = JsonParser.parseString(response.toString()).getAsJsonObject();
+                
+                System.out.println(jsonObject);
                 if (jsonObject.has("success") && jsonObject.get("success").getAsBoolean()) {
                     return true;
                 } else {
+
                     return false;
                 }
             } else {
