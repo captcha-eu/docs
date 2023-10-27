@@ -27,3 +27,8 @@ The Captcha-eu plugin is a powerful tool to protect your WordPress website from 
 **Congratulations**, you have now set up and configured the Captcha-eu plugin on your WordPress website for bot protection!<br />
 If you encounter any issues or have any questions, please refer to our documentation or [contact](https://www.captcha.eu/contact) our support team.
 
+
+## <img src="https://wp.captcha.eu/wp-content/uploads/2023/10/icon-1.svg" height=25> WordFence Login Security
+
+If you'd like to get early access to WFLS support please contact hello@captcha.eu or contact the support via www.captcha.eu/contact.
+you can also use the live chat.
