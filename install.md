@@ -457,6 +457,99 @@ CaptchaResponse checkSolution(const std::string& solution) {
 
 ```
 
+#### **C**
+
+> clang -lcurl -lcjson
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <curl/curl.h>
+#include <cjson/cJSON.h>
+
+typedef struct CaptchaResponse {
+    int success;
+} CaptchaResponse;
+
+typedef struct MemoryStruct {
+  char *memory;
+  size_t size;
+} MemoryStruct;
+
+static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp) {
+  size_t realsize = size * nmemb;
+  MemoryStruct *mem = (MemoryStruct *)userp;
+
+  char *ptr = realloc(mem->memory, mem->size + realsize + 1);
+  if(ptr == NULL) {
+    // out of memory!
+    printf("not enough memory (realloc returned NULL)\n");
+    return 0;
+  }
+
+  mem->memory = ptr;
+  memcpy(&(mem->memory[mem->size]), contents, realsize);
+  mem->size += realsize;
+  mem->memory[mem->size] = 0;
+
+  return realsize;
+}
+
+CaptchaResponse checkSolution(const char* solution) {
+    CaptchaResponse captcha_response = {0};
+    CURL *curl;
+    CURLcode res;
+    MemoryStruct chunk;
+    chunk.memory = malloc(1);  // will be grown as needed by the realloc above
+    chunk.size = 0;    // no data at this point
+
+    curl_global_init(CURL_GLOBAL_ALL);
+    curl = curl_easy_init();
+
+    if(curl) {
+        struct curl_slist *headers = NULL;
+        headers = curl_slist_append(headers, "Content-Type: application/json");
+        headers = curl_slist_append(headers, "Rest-Key: REST-KEY"); // Replace with your actual REST key
+
+        curl_easy_setopt(curl, CURLOPT_URL, "https://w19.captcha.at/validate");
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, solution);
+        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
+
+        res = curl_easy_perform(curl);
+
+        if(res != CURLE_OK) {
+            fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+        } else {
+            cJSON *json = cJSON_Parse(chunk.memory);
+            if (json == NULL) {
+                const char *error_ptr = cJSON_GetErrorPtr();
+                if (error_ptr != NULL) {
+                    fprintf(stderr, "Error before: %s\n", error_ptr);
+                }
+            } else {
+                const cJSON *success = cJSON_GetObjectItemCaseSensitive(json, "success");
+                if (cJSON_IsBool(success)) {
+                    captcha_response.success = cJSON_IsTrue(success);
+                }
+                cJSON_Delete(json);
+            }
+        }
+
+        // Cleanup
+        curl_easy_cleanup(curl);
+        curl_slist_free_all(headers);
+        free(chunk.memory);
+    }
+    curl_global_cleanup();
+
+    return captcha_response;
+}
+```
+
+
 
 <!-- tabs:end -->
 
