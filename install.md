@@ -413,6 +413,49 @@ valid = check_solution(solution)
 
 ```
 
+#### **C++**
+
+```cpp
+#include <cpprest/http_client.h>
+#include <cpprest/json.h>
+#include <iostream>
+#include <stdexcept>    
+#include <string>
+
+struct CaptchaResponse {
+    bool success;
+};
+
+CaptchaResponse checkSolution(const std::string& solution) {
+    CaptchaResponse captcha_response;
+    web::http::uri uri(U("https://w19.captcha.at/validate"));
+    web::http::http_request request(web::http::methods::POST);
+    request.headers().set_content_type(U("application/json"));
+    request.headers().add(U("Rest-Key"), U("REST-KEY")); // Replace with your actual REST key
+
+    web::json::value json_payload = web::json::value::parse(utility::conversions::to_string_t(solution));
+
+    request.set_body(json_payload);
+
+    web::http::client::http_client_config config;
+    web::http::client::http_client client(uri, config);
+
+    web::http::http_response response = client.request(request).get();
+
+    if (response.status_code() != web::http::status_codes::OK) {
+      captcha_response.success = false;
+      return captcha_response;
+    }
+
+    web::json::value json_response = response.extract_json().get();
+    captcha_response.success = json_response[U("success")].as_bool();
+
+    return captcha_response;
+}
+
+``
+
+
 <!-- tabs:end -->
 
 
