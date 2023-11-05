@@ -415,6 +415,8 @@ valid = check_solution(solution)
 
 #### **C++**
 
+> clang++ -std=c++11  -lcpprest -lboost_system -lssl -lcrypto
+
 ```cpp
 #include <cpprest/http_client.h>
 #include <cpprest/json.h>
@@ -453,7 +455,7 @@ CaptchaResponse checkSolution(const std::string& solution) {
     return captcha_response;
 }
 
-``
+```
 
 
 <!-- tabs:end -->
