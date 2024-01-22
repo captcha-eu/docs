@@ -1,6 +1,6 @@
 # KeyCloak
 
-KeyCloak is in beta, to participate in the beta and get access to the source/jar plugin please contact hello@captcha.eu. we are happy to bring you in the beta team.
+> Download the extension here: [Download](https://wp.captcha.eu/wp-content/uploads/2023/11/keycloak-plugin.zip)
 
 The extension, provides captcha.eu support for the following keycloak parts/flows:
 

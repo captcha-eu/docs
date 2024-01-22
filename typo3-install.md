@@ -1,6 +1,5 @@
 
-> as of now <b>only</b> powermail and form supported in a beta fashion.
-## <img src="https://wp.captcha.eu/wp-content/uploads/2023/09/powermail_10.7.3.svg" width=27> PowerMail <sup>beta<sup>
+## <img src="https://wp.captcha.eu/wp-content/uploads/2023/09/powermail_10.7.3.svg" width=27> PowerMail 
 
 ### Install
 add the dependency
@@ -49,7 +48,7 @@ plugin.tx_powermail.settings.setup.spamshield.email = spamreceiver@yourdomain.or
 plugin.tx_powermail.settings.setup.spamshield.logfileLocation = typo3temp/logs/powermailSpam.log
 ```
 
-## <img src="files/typo3/form.svg" width=27> Form <sup>beta<sup>
+## <img src="files/typo3/form.svg" width=27> Form 
 
 ### Install
 add the dependency
