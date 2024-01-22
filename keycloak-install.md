@@ -1,6 +1,6 @@
 # KeyCloak
 
-> Download the extension here: [Download](https://wp.captcha.eu/wp-content/uploads/2023/11/keycloak-plugin.zip)
+
 
 The extension, provides captcha.eu support for the following keycloak parts/flows:
 
@@ -12,7 +12,8 @@ You just follow a few steps and your keycloak is ready to use captcha.eu
 
 ## Obtain the Extension
 
-Contact hello@captch.eu
+Download the extension here: [Download](https://wp.captcha.eu/wp-content/uploads/2023/11/keycloak-plugin.zip)
+
 
 ```sh
 mvn package
