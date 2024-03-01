@@ -37,3 +37,6 @@ you can also use the live chat.
 # Gravity Forms
 
 there is some issues with Gravity Forms - you need to disable their honeypot feature, it interferes with captcha.eu
+
+![WordPress Gravity Forms Settings](files/wp/gravity-forms.png)
+
