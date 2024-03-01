@@ -36,5 +36,4 @@ you can also use the live chat.
 
 # Gravity Forms
 
-there is some issues with "Gravity Forms" - you need to disable gravity forms honeypot feature.
-it interferes with captcha.eu
+there is some issues with Gravity Forms - you need to disable their honeypot feature, it interferes with captcha.eu
