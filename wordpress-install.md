@@ -2,10 +2,6 @@
 
 The Captcha-eu plugin is a powerful tool to protect your WordPress website from bots.
 
-# Notes
-
-there is some issues with "Gravity Forms" - you need to disable gravity forms honeypot feature.
-it interferes with captcha.eu
 
 #### Here's how to set it up:
 
@@ -37,3 +33,8 @@ If you encounter any issues or have any questions, please refer to our documenta
 
 If you'd like to get early access to WFLS support please contact hello@captcha.eu or contact the support via www.captcha.eu/contact.
 you can also use the live chat.
+
+# Gravity Forms
+
+there is some issues with "Gravity Forms" - you need to disable gravity forms honeypot feature.
+it interferes with captcha.eu
