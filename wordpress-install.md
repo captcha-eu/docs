@@ -2,6 +2,11 @@
 
 The Captcha-eu plugin is a powerful tool to protect your WordPress website from bots.
 
+# Notes
+
+there is some issues with "Gravity Forms" - you need to disable gravity forms honeypot feature.
+it interferes with captcha.eu
+
 #### Here's how to set it up:
 
 1. **Download the Plugin**: Navigate to the WordPress plugin directory and search for "captcha.eu". Download and install the plugin.
