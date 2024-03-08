@@ -15,6 +15,7 @@
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/Keycloak_Logo.png" width=27> KeyCloak](keycloak-install.md)
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/file-type-typo3-icon-2021x2048-tqvhn32e.png" width=27> TYPO3](typo3-install.md)
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2024/02/neos1.png" width=27> Neos CMS](neos-install.md)
+  * [<img src="https://wp.captcha.eu/wp-content/uploads/2024/03/images.png" width=27> CraftCMS](craft-install.md)
 * Frameworks
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/10/PHP-logo.svg.png" width=27> PHP](php.md)
 * [:eyes: Testing](testing.md)
