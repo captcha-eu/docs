@@ -34,9 +34,14 @@ If you encounter any issues or have any questions, please refer to our documenta
 If you'd like to get early access to WFLS support please contact hello@captcha.eu or contact the support via www.captcha.eu/contact.
 you can also use the live chat.
 
-# Gravity Forms
+## <img src="https://www.captcha.eu/wp-content/uploads/2024/02/GravityForms.png" height=25> Gravity Forms
 
+### Known Issues 
 there is some issues with Gravity Forms - you need to disable their honeypot feature, it interferes with captcha.eu
 
 ![WordPress Gravity Forms Settings](files/wp/gravity-forms.png)
 
+### disable on some forms
+
+to disable the check on some forms add a "css class" named `cpt_disable`
+![WordPress Gravity Forms Settings](files/wp/gravity_cpt_disable.png)
