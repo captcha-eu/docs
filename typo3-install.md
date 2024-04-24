@@ -36,6 +36,7 @@ Be sure to have spamshield enabled in powermail (TypoScript setup):
 
 ```
 plugin.tx_powermail.settings.setup.spamshield._enable = 1
+plugin.tx_powermail.settings.setup.spamshield.methods.11.indication = 100
 ```
 
 Keep up to date if powermail recognize spam (TypoScript setup):
