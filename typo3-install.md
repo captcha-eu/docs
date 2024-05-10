@@ -77,3 +77,14 @@ You will now see the Captcha.eu-Element inserted into you form.
 ![TYPO3 Form Builder 2](files/typo3/typo3-form-config.png)
 
 After saving, Captcha.eu will now protect any submission.
+
+### TYPO3 &lt;11 or PHP&lt;8
+
+to use the extension for FORMS on older TYPO3 (9,10) or older PHP (&lt;8) please use the special branch here:
+
+<a href="https://github.com/captcha-eu/typo3/archive/refs/heads/typo3_9.5.zip">Here</a>
+
+
+for composer systems use `"captcha-eu/typo3": "dev-typo3_9.5"`
+
+
