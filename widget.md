@@ -15,9 +15,10 @@ and then add the widget within your `<form></form>`
 
 
 ```html
-<div id="captcha_eu_id" class="cpt_widget" data-key="YOUR_PUBLIC_KEY">
+<div id="you_can_choose_your_id" class="cpt_widget" data-key="YOUR_PUBLIC_KEY">
 ```
 
+> the class `cpt_widget`  is important, all div's with that class will be auto initialized
 
 initialize all widgets:
 
@@ -47,4 +48,37 @@ To validate - please see [Integration](/install) on how to validate the token on
 
 
 
+# Advanced Usage
 
+to use the widget in advanced mode you can control rendering and get callbacks for states and solutions
+
+> for usage with npm packages see [/npm](NPM) to get a `KROT` base instance
+
+```js
+<div id="myCustomDiv"></div>
+<input type="hidden" id="captcha_at_solution">
+
+<script>
+    // initialize
+    var cptTarget = document.querySelector("#myCustomDiv")
+
+    KROT.init();
+    KROT.setup("public key")
+    KROT.WidgetV2.render(cptTarget)
+
+
+    KROT.on("CPT_OK", function(e) {
+      // Update the hidden field to be included in the POST request
+      document.querySelector("#captcha_at_solution").value = JSON.stringify(e.detail);
+    })
+
+    KROT.on("CPT_FAILED", function(e) {
+      // captcha failed
+      document.querySelector("#captcha_at_solution").value = "";
+    })
+    KROT.on("CPT_EXPIRED", function(e) {
+      // solved captcha has been expired
+      document.querySelector("#captcha_at_solution").value = "";
+    })
+</script>
+```
