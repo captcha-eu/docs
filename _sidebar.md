@@ -7,6 +7,7 @@
 * [:bulb: Getting started](dashboard_quicktour.md)
 * [:earth_americas: Integration](install.md)
 * [:bear: NPM Package](npm.md)
+* [<img src="https://www.captcha.eu/wp-content/uploads/2024/08/5762492.png" width=27> Widget](widget.md)
 * Platforms
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/174881.png" width=27> WordPress](wordpress-install.md)
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/186_Joomla-512.webp" width=27>  Joomla](joomla-install.md)
