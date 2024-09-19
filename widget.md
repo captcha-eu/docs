@@ -52,7 +52,7 @@ To validate - please see [Integration](/install) on how to validate the token on
 
 to use the widget in advanced mode you can control rendering and get callbacks for states and solutions
 
-> for usage with npm packages see [/npm](NPM) to get a `KROT` base instance
+> for usage with npm packages see [NPM](/npm) to get a `KROT` base instance
 
 ```js
 <div id="myCustomDiv"></div>
