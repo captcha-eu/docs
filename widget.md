@@ -70,15 +70,15 @@ to use the widget in advanced mode you can control rendering and get callbacks f
     KROT.on("CPT_OK", function(e) {
       // Update the hidden field to be included in the POST request
       document.querySelector("#captcha_at_solution").value = JSON.stringify(e.detail);
-    })
+    }, cptTarget)
 
     KROT.on("CPT_FAILED", function(e) {
       // captcha failed
       document.querySelector("#captcha_at_solution").value = "";
-    })
+    }, cptTarget)
     KROT.on("CPT_EXPIRED", function(e) {
       // solved captcha has been expired
       document.querySelector("#captcha_at_solution").value = "";
-    })
+    }, cptTarget)
 </script>
 ```
