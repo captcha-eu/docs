@@ -102,9 +102,9 @@ import { Agent } from 'https';
 import tls from 'tls';
 
 const COOKIE_NAME = 'cptst';
-const SHIELD_ID = '<SHIELD_ID>';
+const SHIELD_ID = '6712642ca48aa3d4d968afea';
 const SHIELD_ORIGIN = 'www.captcha.eu';
-const SECRET = '<DOMAIN_PRIVATE_KEY>';
+const SECRET = '1qMEDSICRzSMQMunOUHJg-726fd58c8fefe9ee67deaec5a4d3c0d500e663d53';
 
 export const handler = async (event) => {
     console.log('Event received:', JSON.stringify(event));
@@ -113,10 +113,6 @@ export const handler = async (event) => {
     const queryParams = querystring.parse(request.querystring);
     
     
-    if (request.uri.startsWith('/api/shield/')) {
-        console.log('Proxying request to shield origin');
-        return proxyRequest(request, SHIELD_ORIGIN);
-    }
     
     console.log('Request headers:', JSON.stringify(headers));
     console.log('Query parameters:', JSON.stringify(queryParams));
@@ -274,58 +270,57 @@ function proxyRequest(request, origin) {
         const options = {
             hostname: origin,
             port: 443,
-            path: `${request.uri}${request.querystring ? '?' + request.querystring : ''}`,
-            method: request.method,
-            headers: Object.entries(request.headers).reduce((acc, [key, value]) => {
-                acc[key] = value[0].value;
-                return acc;
-            }, {}),
-            timeout: 5000, // 5 second timeout
-            servername: origin, // Enable SNI
+            path: request.uri,
+            method: 'POST',
+            servername: origin,
         };
-        options.headers.host = SHIELD_ORIGIN;
 
-        console.log('Proxy request options:', JSON.stringify(options));
+        const req = https.request(options, (res) => {
+            let data = '';
 
-        const proxyReq = https.request(options, (proxyRes) => {
-            let body = '';
-            proxyRes.on('data', (chunk) => body += chunk);
-            proxyRes.on('end', () => {
-                console.log('Proxy response status:', proxyRes.statusCode);
-                console.log('Proxy response headers:', JSON.stringify(proxyRes.headers));
+            res.on('data', (chunk) => {
+                data += chunk;
+            });
+
+            res.on('end', () => {
                 const response = {
-                    status: proxyRes.statusCode.toString(),
-                    statusDescription: proxyRes.statusMessage,
-                    headers: Object.entries(proxyRes.headers).reduce((acc, [key, value]) => {
-                        acc[key] = [{ key, value }];
-                        return acc;
-                    }, {}),
-                    body: body,
+                    status: res.statusCode.toString(),
+                    statusDescription: res.statusMessage,
+                    headers: {},
+                    body: data,
                     bodyEncoding: 'text'
                 };
+
+                // Only pass through the Set-Cookie header
+                const setCookieHeader = res.headers['set-cookie'];
+                if (setCookieHeader) {
+                    response.headers['set-cookie'] = Array.isArray(setCookieHeader) 
+                        ? setCookieHeader.map(cookie => ({ key: 'Set-Cookie', value: cookie }))
+                        : [{ key: 'Set-Cookie', value: setCookieHeader }];
+                }
+
+                // Add Content-Type header if present in the original response
+                if (res.headers['content-type']) {
+                    response.headers['content-type'] = [{ key: 'Content-Type', value: res.headers['content-type'] }];
+                }
+
                 resolve(response);
             });
         });
 
-        proxyReq.on('error', (error) => {
+        req.on('error', (error) => {
             console.error('Error in proxy request:', error);
             reject(error);
         });
 
-        proxyReq.on('timeout', () => {
-            console.error('Proxy request timed out');
-            proxyReq.destroy();
-            reject(new Error('Request timed out'));
-        });
-
+        // Pass through the body from the incoming request
         if (request.body && request.body.data) {
-            proxyReq.write(request.body.data);
+            req.write(request.body.data);
         }
 
-        proxyReq.end();
+        req.end();
     });
 }
-
 ```
 
 ### IAM
