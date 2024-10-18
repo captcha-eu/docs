@@ -328,6 +328,28 @@ function proxyRequest(request, origin) {
 
 ```
 
+### IAM
+go to Roles->Search function
+add Trust relation:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "lambda.amazonaws.com",
+                    "edgelambda.amazonaws.com"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+```
+
 ### I don't have a CDN
 if you don't have a CDN and cannot run Caddy/Proxy at your datacenter, and still would like to get a the best protection
 contact us - we will find a solution.
