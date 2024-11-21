@@ -210,7 +210,7 @@ function checkSolution(solution) {
     'Content-Type': 'application/json',
     'Rest-Key': YOUR_REST_KEY,
   };
-  const data = { captcha_at_solution: solution };
+  const data = solution;
 
   return axios.post(url, data, { headers })
     .then(response => response.data.success)
