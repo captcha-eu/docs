@@ -45,6 +45,8 @@ To validate - please see [Integration](/install) on how to validate the token on
 | `data-field-selector`                                    | a selector for the target hidden field |  the final validation payload will be written into this dom element (usually a `<input type='hidden'>`), by default captcha creates a new one named: `captcha_at_hidden_field`     |
 | `data-language-force`                                    | force specific laguage                 |  widget detecs language via browser, if you'd like to force one set it, possible values: `en`, `de`, `fr`, `ru`, `uk`, `zh`, `hr`, `sr`, `no`, `sv`, `lt`, `da`, `nl`, `it`, `es`    |
 | `data-theme         `                                    | force theme                            |  by default the widget detect's OS based light/dark mode, you can force it, possible values: `dark`, `light`, `clean`   |
+| `data-auto         `                                    | run the captcha automatically                            | instantly runs the captcha on page load value needs to be `true` |
+| `data-cssid         `                                    | ID of the domain                            | loads the configured css from the given domain id (can be found in dashboard) |
 
 
 
