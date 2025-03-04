@@ -47,6 +47,7 @@ To validate - please see [Integration](/install) on how to validate the token on
 | `data-theme         `                                    | force theme                            |  by default the widget detect's OS based light/dark mode, you can force it, possible values: `dark`, `light`, `clean`   |
 | `data-auto         `                                    | run the captcha automatically                            | instantly runs the captcha on page load value needs to be `true` |
 | `data-cssid         `                                    | ID of the domain                            | loads the configured css from the given domain id (can be found in dashboard) |
+| `data-strings`                                           | String object                          | Override text strings from the widget |
 
 
 
@@ -84,3 +85,35 @@ to use the widget in advanced mode you can control rendering and get callbacks f
     }, cptTarget)
 </script>
 ```
+
+## Custom Language
+
+in order to change the strings used by the widget, you can overload them.
+here is the full object, the strings will be deep merged, so you dont need to set 
+all of them
+
+```js
+{
+    "intro": "Ich bin ein Mensch",
+    "working": "Überprüfe.....",
+    "done": "Ich bin ein Mensch",
+    "waca": {
+        "legend": "Menschlicher Verifizierungsprüfung",
+        "button": "Bestätigen Sie, dass Sie ein Mensch sind"
+    },
+    "sr": {
+        "checking": "Validierung läuft...",
+        "success": "Validierung erfolgreich. Sie wurden als Mensch verifiziert.",
+        "failed": "Validierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+        "expired": "Validierung abgelaufen. Bitte versuchen Sie es erneut."
+    }
+}
+```
+
+
+it needs to be set via data-attribute `strings`  on the widget holder:
+
+```html
+<div id="cpt" class="cpt_widget" data-key="xxxx" data-strings='{ "intro": "Ich bin ein Mensch", "working": "Überprüfe.....", "done": "Ich bin ein Mensch", "waca": { "legend": "Menschlicher Verifizierungsprüfung", "button": "Bestätigen Sie, dass Sie ein Mensch sind" }, "sr": { "checking": "Validierung läuft...", "success": "Validierung erfolgreich. Sie wurden als Mensch verifiziert.", "failed": "Validierung fehlgeschlagen. Bitte versuchen Sie es erneut.", "expired": "Validierung abgelaufen. Bitte versuchen Sie es erneut." } }'></div>
+
+``` 
