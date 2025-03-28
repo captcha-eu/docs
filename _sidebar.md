@@ -32,6 +32,7 @@
 **Further infos**
 * [:austria: 100% Austria Path](at-traffic.md)
 * [:information_source: Browser Requirement](client.md)
+* [<img src="https://www.captcha.eu/wp-content/uploads/2025/03/6733834.png" width=27> Statistics/Reporting API](rest.md)
 <!-- * [:question: FAQ](faq.md) -->
 <!-- * [:spiral_notepad: Changelog](changelog.md) -->
 <br />
