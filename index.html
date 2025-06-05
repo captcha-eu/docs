@@ -3,11 +3,62 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>captcha.eu Documentation - Invisible Bot Protection for Websites</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="Official documentation for captcha.eu - GDPR-compliant, invisible bot protection without puzzles. Integration guides, API references, and troubleshooting.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="keywords" content="captcha, bot protection, GDPR compliant, invisible captcha, spam protection, form security">
+  <meta name="author" content="captcha.eu">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="captcha.eu Documentation">
+  <meta property="og:description" content="Learn how to integrate captcha.eu - the invisible, GDPR-compliant bot protection for your website.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://docs.captcha.eu">
+  <meta property="og:image" content="https://www.captcha.eu/wp-content/uploads/2023/09/captcha-eu-logo.png">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="captcha.eu Documentation">
+  <meta name="twitter:description" content="Official docs for captcha.eu - invisible bot protection without puzzles.">
+  <meta name="twitter:image" content="https://www.captcha.eu/wp-content/uploads/2023/09/captcha-eu-logo.png">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://docs.captcha.eu">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/_media/logo.svg">
+  <link rel="alternate icon" href="/favicon.ico">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "captcha.eu Documentation",
+    "description": "Official documentation for captcha.eu - GDPR-compliant, invisible bot protection",
+    "author": {
+      "@type": "Organization",
+      "name": "captcha.eu",
+      "url": "https://www.captcha.eu"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "captcha.eu",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://docs.captcha.eu/_media/logo.svg"
+      }
+    },
+    "datePublished": "2023-04-06",
+    "dateModified": "2024-12-06"
+  }
+  </script>
 </head>
 
 <body>
@@ -35,21 +86,45 @@
     var docEditBase = null
     var title = "Edit on Github"
     window.$docsify = {
-      name: 'captcha',
+      name: 'captcha.eu',
       repo: 'captcha-eu/docs',
       logo: '/_media/logo.svg',
       loadSidebar: true,
       routerMode: 'history',
       subMaxLevel: 3,
+      search: {
+        maxAge: 86400000, // Expiration time, the default one day
+        paths: 'auto',
+        placeholder: 'Search documentation...',
+        noData: 'No Results!',
+        depth: 6
+      },
+      ga: 'UA-XXXXXXXXX-X', // Google Analytics tracking ID
       plugins: [
         EditOnGithubPlugin.create(docBase, docEditBase, title),
         function (hook, vm) {
           hook.doneEach(function () {
             // Invoked each time after the data is fully loaded, no arguments,
-            document.title = 'captcha.eu (docs): ' + document.title;
+            var pageTitle = vm.route.file.replace('.md', '').replace(/\//g, ' - ');
+            document.title = 'captcha.eu docs - ' + pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
+            
+            // Update meta description based on page content
+            var metaDesc = document.querySelector('meta[name="description"]');
+            var firstParagraph = document.querySelector('#main p');
+            if (metaDesc && firstParagraph) {
+              metaDesc.content = firstParagraph.textContent.substring(0, 160) + '...';
+            }
           });
         }
-      ]
+      ],
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      auto2top: true,
+      executeScript: true,
+      mergeNavbar: true,
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      notFoundPage: true
     }
   </script>
   <style>
