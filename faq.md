@@ -1,37 +1,45 @@
-# FAQ
+# Frequently Asked Questions
 
-## What is a 	🤖
+## What is a bot? 🤖
 
-a bot in short is a automated process which submits your forms or executes actions.
-the goal of the bot might be:
-  - DDos [Wikipedia](https://en.wikipedia.org/wiki/Denial-of-service_attack)
-  - Enhance chances of winning (Sweapstakes)
-  - Manipulate data (Polls)
-  - Search Engines / Crawlers
-The range of bot technics varies alot, some are just simple scripts and on the other end of the spectrum you have high sophisticated
-bots that try their best to be not deteced and act as close as humans.
+A bot is an automated process that submits your forms or executes actions on websites. The goals of bots might include:
 
-Search Engine Bots are the exception, they are generally considered "good" bots - but still are bots
+- **DDoS attacks** - [Learn more on Wikipedia](https://en.wikipedia.org/wiki/Denial-of-service_attack)
+- **Gaming systems** - Enhance chances of winning sweepstakes
+- **Data manipulation** - Skew poll results or reviews
+- **Content scraping** - Search engines and crawlers
 
-  - See [Our approach to detect/classify bots](ml.md)
+Bot techniques vary greatly, from simple scripts to sophisticated systems that mimic human behavior and attempt to evade detection.
 
-  # GDRP
-  as a 🇪🇺 native company we play strongly by the rules of GDPR.
-  our number one goal is to collect as less as possible data. only the required one to classify bots.
-  data is not long term stored.
+**Note**: Search engine bots are the exception - they are generally considered "good" bots but are still automated systems.
 
+For more details, see our [machine learning approach to bot detection](https://www.captcha.eu/technology).
 
-    - no cookie / localstorage
-    - no cross page-impression-tracking
-    - behavioral data is anonmized on the client side already
-    - IP / Connection data is stored anonmized by removing the last 2 blocks
-      - e.g: `8.8.8.8` is stored (for statistics/ml...) as `8.8` same for ipv6 (`2001:db8:3333:4444:5555:6666:7777:8888` -> `2001:db8:3333:4444:5555:6666`
+## GDPR Compliance 🇪🇺
 
-  # Detecting/Classfing bots
+As a European company, we strictly adhere to GDPR regulations. Our privacy-first approach includes:
 
-  to detect and classify bots we use various layers some of them are - only anonmized values are stored:
+### Data Minimization
+- Collect only data necessary for bot classification
+- No long-term storage of personal information
+- Process data in real-time when possible
 
-    - client side browser classification
-    - behavioral: mouse movement, keyboard timings
-    - system: timing of different parts
-    - machine learning to generate a likelhood-to-be-human score.
+### Privacy Features
+- **No cookies or localStorage** - Zero tracking mechanisms
+- **No cross-page tracking** - Each request is independent  
+- **Client-side anonymization** - Behavioral data is anonymized before transmission
+- **IP address anonymization** - Connection data is stored with reduced precision
+  - IPv4 example: `8.8.8.8` → `8.8.*.*`
+  - IPv6 example: `2001:db8:3333:4444:5555:6666:7777:8888` → `2001:db8:3333:4444:5555:6666:*:*`
+
+## Bot Detection Methods
+
+We use multiple detection layers to identify automated traffic. All data is anonymized before storage:
+
+### Detection Techniques
+- **Browser Classification** - Client-side environment analysis
+- **Behavioral Analysis** - Mouse movement patterns and keyboard timing
+- **System Timing** - Performance characteristics of different components  
+- **Machine Learning** - AI-generated likelihood-to-be-human scoring
+
+All detection happens in real-time with minimal data collection to maintain user privacy while ensuring effective protection.

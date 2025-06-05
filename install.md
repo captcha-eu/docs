@@ -1,16 +1,19 @@
-# Integration
+# Integration Guide
 
-To integrate captcha.eu, there are two components you need to include: client-side solution generation and server-side solution validation. Here's how to set it up:
+This comprehensive guide shows you how to integrate captcha.eu into your website. The integration consists of two essential components:
 
+1. **Client-side**: JavaScript SDK that generates protection solutions
+2. **Server-side**: Validation of solutions to verify legitimate users
+
+Choose your preferred implementation method below:
 
 <!-- tabs:start -->
 
 #### **Client**
 
-### Integration {docsify-ignore}
+### Frontend Integration {docsify-ignore}
 
-
-for the integration in frontend see some of the below samples
+Select your frontend technology for specific implementation examples:
 
 <!-- tabs:start -->
 

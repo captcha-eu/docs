@@ -1,21 +1,70 @@
 # :rocket: Quickstart Guide
 
-Here's how to get started:
+Get your website protected against bots in just 5 simple steps. This guide will walk you through the entire process from signup to implementation.
 
-1. **Sign up in the dashboard**:<br />
-Go to our [website](https://www.captcha.eu/) and create an account. Once you've registered, you'll have access to our dashboard where you can manage your subscription and get API keys.
+## 1. **Create Your Account**
 
-2. **Purchase a subscription**:<br />
-Choose the subscription plan that suits your needs and purchase it through our website.
+Visit [captcha.eu](https://www.captcha.eu/) and click the signup button. After registration, you'll get:
+- Access to your personal dashboard
+- 100 free verification requests to test
+- Ability to manage multiple domains
 
-3. **Create Domains**:<br />
-Create the domains that you want to use captcha.eu's protection on.
+## 2. **Choose Your Plan**
 
-4. **Copy the snippet and keys into your webpage**:<br />
-Integrate captcha.eu into your website by copying the provided snippet and API keys into your webpage. The specific implementation details can be found in [Integration](install) - make sure you use the correct keys for the correct domain.
+Select a subscription that fits your traffic:
+- **Starter**: Perfect for small websites (up to 1,000 requests/month)
+- **Growth**: For growing businesses (up to 10,000 requests/month)
+- **Advanced**: High-traffic sites (up to 100,000 requests/month)
+- **Enterprise**: Custom solutions for large organizations
 
-5. **Enjoy having your site protected by captcha.eu**:<br />
-You're all set! captcha.eu will now protect your site from bots, keeping it safe and secure.
+💡 *Tip: You can change plans anytime without losing service.*
 
-If you have any questions or encounter any issues during the onboarding process, please don't hesitate to [contact](https://www.captcha.eu/contact) our support team.
+## 3. **Add Your Domain(s)**
+
+In your dashboard:
+1. Click "Add Domain"
+2. Enter a name (can be any identifier, not just the URL)
+3. Each domain gets unique API keys
+
+⚠️ **Important**: Keep your REST key secret - it's used for server-side validation.
+
+## 4. **Integrate the Code**
+
+### Quick Integration
+For the fastest setup:
+- **WordPress?** Use our [plugin](wordpress-install.md)
+- **Other CMS?** Check our [platform guides](_sidebar.md#platforms)
+- **Custom site?** See our [integration guide](install.md)
+
+### Basic Example
+```html
+<script src="https://www.captcha.eu/sdk.js" defer></script>
+<script>
+  KROT.setup("YOUR-PUBLIC-KEY");
+</script>
+```
+
+## 5. **Verify Protection**
+
+Once integrated:
+1. [Test your forms](testing.md) to ensure protection is active
+2. Monitor statistics in your dashboard
+3. Check our [REST API](rest.md) for detailed analytics
+
+✅ **You're protected!** Your forms are now secure from bots.
+
+## Next Steps
+
+- 📊 [Configure advanced settings](https://www.captcha.eu/login) in your dashboard
+- 🧪 Learn about [testing strategies](testing.md)
+- 🔧 Explore [platform-specific features](install.md)
+- 🌍 Use our [Austria-only endpoint](at-traffic.md) for 100% EU traffic
+
+## Need Help?
+
+We're here to assist:
+- 💬 **Live Chat**: Available on [our website](https://www.captcha.eu)
+- 📧 **Email**: support@captcha.eu
+- 📚 **Docs**: You're already here!
+- 🐛 **Issues**: [Contact form](https://www.captcha.eu/contact)
 
