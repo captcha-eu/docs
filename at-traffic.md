@@ -14,20 +14,75 @@ Consider the Austria-only path if you:
 
 ## Implementation
 
-To use the Austria-only network path, replace the default endpoint:
+To use the Austria-only network path, you need to make two changes:
 
 ### Default Endpoint (CDN-optimized)
-```javascript
-// Standard integration
-KROT.setup("YOUR-PUBLIC-KEY");
+```html
+<script src="https://www.captcha.eu/sdk.js" defer></script>
+<script>
+  KROT.setup("YOUR-PUBLIC-KEY");
+  // Uses global CDN routing
+</script>
 ```
 
 ### Austria-Only Endpoint
-```javascript
-// Austria-only routing
-KROT.setup("YOUR-PUBLIC-KEY", {
-  endpoint: "https://at.captcha.at"
-});
+```html
+<script src="https://at.captcha.at/sdk.js" defer></script>
+<script>
+  KROT.setup("YOUR-PUBLIC-KEY");
+  // Set Austria-only host AFTER setup but BEFORE getSolution()
+  KROT.KROT_HOST = "https://at.captcha.at";
+</script>
+```
+
+### Important Implementation Notes
+
+1. **Load JS from Austrian domain**: Use `https://at.captcha.at/sdk.js`
+2. **Set KROT_HOST after setup**: Must be called after `KROT.setup()` but before any `KROT.getSolution()` calls
+3. **Order matters**: The sequence must be: load SDK → setup → set host → get solution
+
+### Complete Working Example
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Austria-Only captcha.eu</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="email" name="email" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Load SDK from Austrian domain -->
+    <script src="https://at.captcha.at/sdk.js" defer></script>
+    <script>
+        window.addEventListener('load', function() {
+            // 1. Setup with your public key
+            KROT.setup("YOUR-PUBLIC-KEY");
+            
+            // 2. Set Austrian host (AFTER setup, BEFORE getSolution)
+            KROT.KROT_HOST = "https://at.captcha.at";
+            
+            // 3. Use getSolution() normally
+            document.getElementById('myForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                KROT.getSolution()
+                    .then((solution) => {
+                        // Send solution to your server for validation
+                        fetch('/validate', {
+                            method: 'POST',
+                            body: JSON.stringify(solution),
+                            headers: {'Content-Type': 'application/json'}
+                        });
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
 ```
 
 ## Important Notes
