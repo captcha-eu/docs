@@ -13,7 +13,7 @@ Search for "captcha.eu" in the WordPress plugin directory and install it directl
 If you haven't already, [sign up for a captcha.eu account](https://www.captcha.eu/login). New accounts include 100 free verification requests for testing.
 
 ### Step 3: Set Up Domains
-In your captcha.eu dashboard, create a domain entry for your WordPress site. This is an organizational identifier and doesn't need to match your actual domain name.
+In your captcha.eu dashboard, create a domain entry for your WordPress site. **Important**: Enter your actual website domain (e.g., `example.com`) as this must match where your forms are hosted for security purposes.
 
 ### Step 4: Activate the Plugin
 Go to **Plugins** in your WordPress admin and activate the captcha.eu plugin.

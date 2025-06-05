@@ -23,10 +23,12 @@ Select a subscription that fits your traffic:
 
 In your dashboard:
 1. Click "Add Domain"
-2. Enter a name (can be any identifier, not just the URL)
+2. Enter your website's domain (must match where forms are hosted)
 3. Each domain gets unique API keys
 
-⚠️ **Important**: Keep your REST key secret - it's used for server-side validation.
+⚠️ **Important**: 
+- Domain must match your website's domain for security
+- Keep your REST key secret - it's used for server-side validation
 
 ## 4. **Integrate the Code**
 
