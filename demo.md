@@ -21,7 +21,7 @@ Include the following script at the bottom of your page, or in any document.read
 
 
 ```html
-<script type="text/javascript" src="https://w19.captcha.at/sdk.js" defer></script>
+<script type="text/javascript" src="https://www.captcha.eu/sdk.js" defer></script>
 ```
 
 Then, set up the Captcha-eu client-side SDK with your public key:
@@ -86,7 +86,7 @@ Use the HTTP client of your choice. Here is an example using raw cURL, which sho
     $solution = $_POST["captcha_at_solution"];
 
     function checkSolution($solution) {
-      $ch = curl_init("https://w19.captcha.at/validate");
+      $ch = curl_init("https://www.captcha.eu/validate");
       curl_setopt($ch, CURLOPT_POSTFIELDS, $solution);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Rest-Key: YOUR-REST-KEY'));
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -135,7 +135,7 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -H  "Rest-Key: YOUR-REST-KEY" \
   -d '{"challenge": "XXX", "nonce": "XXX", "hash": "XXX"}' \
-  https://w19.captcha.at/validate
+  https://www.captcha.eu/validate
 ```
 
 #### **OpenAPI/Swagger**

@@ -24,7 +24,7 @@ Include the following script at the bottom of your page, or in any document.read
 
 
 ```html
-<script type="text/javascript" src="https://w19.captcha.at/sdk.js" defer></script>
+<script type="text/javascript" src="https://www.captcha.eu/sdk.js" defer></script>
 ```
 
 Then, set up the Captcha-eu client-side SDK with your public key:
@@ -141,7 +141,7 @@ Use the HTTP client of your choice. Here is an example using raw cURL, which sho
 ```php
 <?php
     function checkSolution($solution) {
-      $ch = curl_init("https://w19.captcha.at/validate");
+      $ch = curl_init("https://www.captcha.eu/validate");
       curl_setopt($ch, CURLOPT_POSTFIELDS, $solution);
       curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Rest-Key: YOUR-REST-KEY'));
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -172,7 +172,7 @@ type CaptchaResponse struct {
 }
 
 func checkSolution(solution string) (bool, error) {
-	url := "https://w19.captcha.at/validate"
+	url := "https://www.captcha.eu/validate"
 	payload := []byte(solution)
 
 	req, err := http.NewRequest("POST", url, bytes.NewBuffer(payload))
@@ -214,7 +214,7 @@ const axios = require('axios');
 const YOUR_REST_KEY = 'YOUR-REST-KEY';
 
 function checkSolution(solution) {
-  const url = 'https://w19.captcha.at/validate';
+  const url = 'https://www.captcha.eu/validate';
   const headers = {
     'Content-Type': 'application/json',
     'Rest-Key': YOUR_REST_KEY,
@@ -244,7 +244,7 @@ struct CaptchaResponse {
 }
 
 async fn check_solution(solution: &str) -> Result<bool, reqwest::Error> {
-    let url = "https://w19.captcha.at/validate";
+    let url = "https://www.captcha.eu/validate";
     let client = Client::new();
 
     let body = serde_json::json!({
@@ -303,7 +303,7 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -H  "Rest-Key: YOUR-REST-KEY" \
   -d '{"challenge": "XXX", "nonce": "XXX", "hash": "XXX"}' \
-  https://w19.captcha.at/validate
+  https://www.captcha.eu/validate
 ```
 
 
@@ -328,7 +328,7 @@ public class CaptchaValidation {
     public static boolean checkSolution(String solution) {
 
         try {
-            URL url = new URL("https://w19.captcha.at/validate");
+            URL url = new URL("https://www.captcha.eu/validate");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             // Set the request method to POST
@@ -394,7 +394,7 @@ public class CaptchaValidation {
 import requests
 
 def check_solution(solution):
-    url = "https://w19.captcha.at/validate"
+    url = "https://www.captcha.eu/validate"
     headers = {
         "Content-Type": "application/json",
         "Rest-Key": "YOUR-REST-KEY"  # Replace with your actual REST API key
@@ -439,7 +439,7 @@ struct CaptchaResponse {
 
 CaptchaResponse checkSolution(const std::string& solution) {
     CaptchaResponse captcha_response;
-    web::http::uri uri(U("https://w19.captcha.at/validate"));
+    web::http::uri uri(U("https://www.captcha.eu/validate"));
     web::http::http_request request(web::http::methods::POST);
     request.headers().set_content_type(U("application/json"));
     request.headers().add(U("Rest-Key"), U("REST-KEY")); // Replace with your actual REST key
@@ -521,7 +521,7 @@ CaptchaResponse checkSolution(const char* solution) {
         headers = curl_slist_append(headers, "Content-Type: application/json");
         headers = curl_slist_append(headers, "Rest-Key: REST-KEY"); // Replace with your actual REST key
 
-        curl_easy_setopt(curl, CURLOPT_URL, "https://w19.captcha.at/validate");
+        curl_easy_setopt(curl, CURLOPT_URL, "https://www.captcha.eu/validate");
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, solution);
         curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
