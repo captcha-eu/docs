@@ -1,20 +1,47 @@
-# Captcha.eu
+# Captcha.eu Documentation
 
-**[captcha.eu](https://www.captcha.eu/)** is a product designed to assist website owners in protecting their forms, login screens, and other user-interaction points against bots. This product uses **non-intrusive** JavaScript SDKs, without requiring any user-interrupting puzzling process.
+Welcome to the official documentation for **[captcha.eu](https://www.captcha.eu/)** – the invisible bot protection service that keeps your website secure without interrupting your users.
 
-The purpose of this document is to provide assistance with integrating **[captcha.eu](https://www.captcha.eu/)** into your website.
+## What is captcha.eu?
 
-## Integration
+**[captcha.eu](https://www.captcha.eu/)** protects your forms, login screens, and user interactions from bots using advanced behavioral analysis. Unlike traditional CAPTCHAs, our solution works invisibly in the background – no puzzles, no image selection, no user friction.
 
-If you are using Wordpress, integrating **[captcha.eu](https://www.captcha.eu/)** is straightforward. We offer a free Wordpress plugin that can be easily installed and configured to protect your website.
+## Quick Start
 
-For non-Wordpress websites, the integration process involves adding a few lines of JavaScript code to the website's HTML. The specific implementation details can be found on our [integration](install).
+### For WordPress Users
+Get started in minutes with our [WordPress plugin](wordpress-install.md). Simply install, configure your API keys, and you're protected.
 
-## GDPR Compliance
+### For Other Platforms
+We support multiple platforms and frameworks:
+- **CMS Platforms**: [Joomla](joomla-install.md), [TYPO3](typo3-install.md), [Neos](neos-install.md), [CraftCMS](craft-install.md)
+- **E-commerce**: [Adobe Commerce/Magento](adobecommerce-magento2-install.md)
+- **Authentication**: [KeyCloak](keycloak-install.md)
+- **Forums**: [WoltLab Suite](woltlab-suite-install.md)
+- **No-Code**: [WebFlow](webflow.md)
 
-**[captcha.eu](https://www.captcha.eu/)** is fully compliant with the General Data Protection Regulation (GDPR). Our product adheres to the guidelines set forth in the regulation, ensuring that user data is protected and used appropriately.
+### Custom Integration
+For custom websites, check our comprehensive [integration guide](install.md) with code examples in multiple programming languages.
 
-## Conclusion
+## Key Features
 
+- **🛡️ Invisible Protection**: No user interaction required
+- **🍪 No Cookies**: 100% GDPR compliant without tracking
+- **🇦🇹 EU Hosted**: All data processed in Austria
+- **♿ Accessible**: Works for all users, including those with disabilities
+- **⚡ Fast Integration**: Get protected in under 30 minutes
+- **📊 Real-time Analytics**: Monitor protection via our [REST API](rest.md)
 
-In summary, **[captcha.eu](https://www.captcha.eu/)** is a valuable tool for website owners to protect their forms and other user-interaction points against bots. Integrating **[captcha.eu](https://www.captcha.eu/)** is easy and can be achieved through a Wordpress plugin or by adding a few lines of JavaScript code to your website's HTML. Additionally, **[captcha.eu](https://www.captcha.eu/)** is fully GDPR compliant, providing peace of mind to website owners regarding user data protection.
+## Getting Started
+
+1. 📝 [Create your account](https://www.captcha.eu/login)
+2. 🚀 Follow our [quickstart guide](dashboard_quicktour.md)
+3. 💻 Choose your [integration method](install.md)
+4. 🧪 [Test your implementation](testing.md)
+5. 🎉 Enjoy bot-free forms!
+
+## Need Help?
+
+- 📖 Browse our [documentation](dashboard_quicktour.md)
+- ❓ Check the [FAQ](faq.md)
+- 💬 Use our [live chat](https://www.captcha.eu)
+- ✉️ [Contact support](https://www.captcha.eu/contact)
