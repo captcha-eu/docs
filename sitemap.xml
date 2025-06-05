@@ -1,58 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://docs.captcha.eu/adobecommerce-magento2-install</loc>
-    <lastmod>2023-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/npm</loc>
-    <lastmod>2023-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/testing</loc>
-    <lastmod>2023-04-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/keycloak-install</loc>
-    <lastmod>2023-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/at-traffic</loc>
-    <lastmod>2023-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/install</loc>
+    <loc>https://docs.captcha.eu/</loc>
     <lastmod>2024-12-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://docs.captcha.eu/_coverpage</loc>
-    <lastmod>2023-04-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://docs.captcha.eu/install</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://docs.captcha.eu/dashboard_quicktour</loc>
     <lastmod>2024-12-06</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://docs.captcha.eu/changelog</loc>
+    <loc>https://docs.captcha.eu/wordpress-install</loc>
     <lastmod>2024-12-06</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://docs.captcha.eu/faq</loc>
@@ -61,80 +31,56 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://docs.captcha.eu/de</loc>
-    <lastmod>2023-04-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/typo3-install</loc>
-    <lastmod>2023-10-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/woltlab-suite-install</loc>
-    <lastmod>2023-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/_sidebar</loc>
-    <lastmod>2023-10-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/client</loc>
-    <lastmod>2023-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/wordpress-install</loc>
-    <lastmod>2024-12-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/joomla-install</loc>
-    <lastmod>2023-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/proxy</loc>
-    <lastmod>2023-09-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/en</loc>
-    <lastmod>2023-04-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/php</loc>
-    <lastmod>2023-10-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/gdpr</loc>
-    <lastmod>2024-12-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://docs.captcha.eu/troubleshoot</loc>
+    <loc>https://docs.captcha.eu/at-traffic</loc>
     <lastmod>2024-12-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://docs.captcha.eu/webflow</loc>
-    <lastmod>2024-11-15</lastmod>
+    <loc>https://docs.captcha.eu/rest</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/testing</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/client</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/joomla-install</loc>
+    <lastmod>2023-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/typo3-install</loc>
+    <lastmod>2023-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/keycloak-install</loc>
+    <lastmod>2023-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/adobecommerce-magento2-install</loc>
+    <lastmod>2023-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/woltlab-suite-install</loc>
+    <lastmod>2023-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -151,10 +97,34 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://docs.captcha.eu/rest</loc>
-    <lastmod>2024-12-06</lastmod>
+    <loc>https://docs.captcha.eu/webflow</loc>
+    <lastmod>2024-11-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/widget</loc>
+    <lastmod>2024-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/php</loc>
+    <lastmod>2023-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/npm</loc>
+    <lastmod>2023-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/proxy</loc>
+    <lastmod>2023-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://docs.captcha.eu/shield</loc>
@@ -163,9 +133,27 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://docs.captcha.eu/widget</loc>
-    <lastmod>2024-08-15</lastmod>
+    <loc>https://docs.captcha.eu/changelog</loc>
+    <lastmod>2024-12-06</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/demo</loc>
+    <lastmod>2023-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/de</loc>
+    <lastmod>2023-04-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://docs.captcha.eu/en</loc>
+    <lastmod>2023-04-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
