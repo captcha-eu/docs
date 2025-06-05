@@ -85,7 +85,7 @@ function fail_request() {
     exit;
 }
 function checkSolution($solution, $restKey) {
-    $ch = curl_init("https://w19.captcha.at/validate");
+    $ch = curl_init("https://www.captcha.eu/validate");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $solution);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Rest-Key: ' . $restKey));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

@@ -11,9 +11,9 @@ info:
   version: "0.1.0"
 externalDocs:
   description: More captcha-docs
-  url: https://docs.captcha.at
+  url: https://docs.captcha.eu
 servers:
-  - url: https://w19.captcha.at
+  - url: https://www.captcha.eu
 tags:
   - name: validation
 paths:
