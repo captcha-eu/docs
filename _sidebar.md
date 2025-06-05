@@ -22,7 +22,6 @@
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/10/PHP-logo.svg.png" width=27> PHP](php.md)
 * [:eyes: Testing](testing.md)
 * [:octopus: On-Premise Proxy](proxy.md)
-* [:fire: Troubleshooting](troubleshoot.md)
 
 <!-- **Dashboard** -->
 <!-- * :level_slider: Settings -->
@@ -33,8 +32,6 @@
 * [:austria: 100% Austria Path](at-traffic.md)
 * [:information_source: Browser Requirement](client.md)
 * [<img src="https://www.captcha.eu/wp-content/uploads/2025/03/6733834.png" width=27> Statistics/Reporting API](rest.md)
-* [:question: FAQ](faq.md)
-* [:spiral_notepad: Changelog](changelog.md)
 <br />
 * [:mailbox:  Contact](https://www.captcha.eu/contact)
 
