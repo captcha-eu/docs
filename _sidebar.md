@@ -20,6 +20,7 @@
   * [<img src="https://www.captcha.eu/wp-content/uploads/2024/11/655b60964be1a1b36c746d6d_646df8c8750c0dedc5bc6b9c_webflow_logo_icon_169218.png" width=27> WebFlow](webflow.md)
 * Frameworks
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/10/PHP-logo.svg.png" width=27> PHP](php.md)
+  * [<img src="https://www.django-rest-framework.org/img/logo.png" width=27> Django](django-install.md)
 * [:eyes: Testing](testing.md)
 * [:octopus: On-Premise Proxy](proxy.md)
 
