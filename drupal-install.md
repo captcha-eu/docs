@@ -43,7 +43,12 @@ Choose your preferred protection mode:
 Go to **Configuration** → **People** → **CAPTCHA** and add CAPTCHA points for the forms you want to protect:
 
 1. Click **Add CAPTCHA point**
-2. Select the form ID (e.g., `contact_message_feedback_form`, `user_register_form`)
+2. Select the form ID from common options:
+   - `contact_message_feedback_form` - Contact forms
+   - `user_register_form` - User registration
+   - `user_login_form` - **Login forms (prevents credential stuffing)**
+   - `user_pass` - Password reset forms
+   - `comment_comment_form` - Comment forms
 3. Choose **Captcha.EU** as the challenge type
 4. Save configuration
 
@@ -53,6 +58,9 @@ Your Drupal website is now protected against bots. The module supports:
 
 - ✅ **Contact Forms** - Protect inquiry and feedback forms
 - ✅ **User Registration** - Prevent fake account creation  
+- ✅ **Login Forms** - **Prevent credential stuffing attacks**
+- ✅ **Password Reset** - Protect password recovery forms
+- ✅ **Comment Forms** - Stop spam comments
 - ✅ **Custom Forms** - Works with any Drupal form
 - ✅ **Multiple Instances** - Supports multiple captchas per page
 - ✅ **Dual Modes** - Invisible protection or visible widget
@@ -78,15 +86,32 @@ No visible captcha widget appears, but forms are fully protected.
 Shows a visible "I am human" button for clear user indication:
 
 ```yaml
-Form ID: user_register_form
+Form ID: user_login_form  # Ideal for login protection
 Challenge type: Captcha.EU  
 Widget Mode: Widget
 Theme: Auto
 ```
 
-Users see and click the captcha widget before form submission.
+Users see and click the captcha widget before form submission. **Recommended for login forms** to clearly indicate security protection.
 
 <!-- tabs:end -->
+
+## Credential Stuffing Protection
+
+**Protect your users' accounts** by adding captcha to login forms:
+
+1. Go to **Configuration** → **People** → **CAPTCHA**
+2. Click **Add CAPTCHA point**
+3. Form ID: `user_login_form`
+4. Challenge type: **Captcha.EU**
+5. Save configuration
+
+> **Why protect login forms?** Credential stuffing attacks use stolen username/password combinations from data breaches to attempt automated logins. Adding captcha protection prevents these automated attacks while maintaining user experience.
+
+**Recommended settings for login protection:**
+- **Widget Mode**: Shows clear security indication to users
+- **Theme**: Auto (adapts to your site's design)
+- **Invisible Mode**: For seamless protection without user interaction
 
 ## Testing Your Integration
 
