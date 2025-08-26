@@ -41,6 +41,3 @@ You can enable/disable the areas that you want to protect using Captcha.eu.
 ![Captcha.eu Settings Frontend](files/adobe-commerce-magento/settings-frontend.png)
 
 
-## Installation Guide PDF
-
- - [Captcha.eu Captcha - Magento 2 Extension v1.0.0.pdf](https://docs.captcha.eu/files/adobe-commerce-magento/Captcha.eu-Captcha-Magento2-Extension-v1.0.0.pdf)
