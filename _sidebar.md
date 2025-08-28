@@ -19,6 +19,7 @@
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2024/02/neos1.png" width=27> Neos CMS](neos-install.md)
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2024/03/images.png" width=27> CraftCMS](craft-install.md)
   * [<img src="https://www.captcha.eu/wp-content/uploads/2024/11/655b60964be1a1b36c746d6d_646df8c8750c0dedc5bc6b9c_webflow_logo_icon_169218.png" width=27> WebFlow](webflow.md)
+  * [<img src="https://www.captcha.eu/wp-content/uploads/2025/08/images.png" width=27> Contao](contao-install.md)
 * Frameworks
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/10/PHP-logo.svg.png" width=27> PHP](php.md)
   * [<img src="https://www.django-rest-framework.org/img/logo.png" width=27> Django](django-install.md)
