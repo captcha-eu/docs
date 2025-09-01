@@ -1,6 +1,9 @@
 # Contao
 
-> This extension is developed and maintained by [Duncrow](https://duncrow.com/)
+
+> **Note:**  
+> If you need support with installation or integration in Contao, please feel free to contact our cooperation partner [duncrow.com](https://duncrow.com) or send an email to [office@duncrow.com](mailto:office@duncrow.com).  
+> The Duncrow team will provide you with professional support for setup and implementation.
 
 ## Install the extension
 
