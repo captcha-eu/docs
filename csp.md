@@ -2,12 +2,7 @@
 
 ## Overview
 
-Captcha.eu is designed to work with Content Security Policy (CSP) headers, providing strong security while maintaining compatibility with strict CSP configurations.
-
-**Key Features:**
-- ✅ No `blob:` required for workers (uses direct CORS-based loading)
-- ✅ Optional nonce support for eliminating `unsafe-inline`
-- ✅ Backward compatible with existing deployments
+Captcha.eu is designed to work with Content Security Policy (CSP) headers, providing strong security while maintaining compatibility with your website's CSP configuration.
 
 ## Quick Start - Minimum Required CSP
 
@@ -218,7 +213,7 @@ The SDK will automatically apply the nonce to all dynamically created style elem
 
 **Solution:**
 - Verify `worker-src https://www.captcha.eu` is in your CSP
-- DO NOT include `blob:` - it's not needed!
+- If issues persist, you may need to add `blob:` for worker loading compatibility
 
 ### Images Not Loading
 
@@ -298,14 +293,7 @@ Never use `*` in CSP directives - always specify exact domains:
 ❌ Bad: `script-src *`
 ✅ Good: `script-src 'self' https://www.captcha.eu`
 
-### 3. No blob: Required
-
-Modern Captcha.eu SDK doesn't require `blob:` for workers:
-
-❌ Old: `worker-src https://www.captcha.eu blob:`
-✅ New: `worker-src https://www.captcha.eu`
-
-### 4. Generate Fresh Nonces
+### 3. Generate Fresh Nonces
 
 Always generate a new nonce for each page load:
 
@@ -317,7 +305,7 @@ const nonce = crypto.randomBytes(16).toString('base64');
 const nonce = 'static-value-12345';
 ```
 
-### 5. Test in Staging First
+### 4. Test in Staging First
 
 Always test CSP changes in a staging environment before deploying to production.
 
@@ -326,29 +314,12 @@ Always test CSP changes in a staging environment before deploying to production.
 | CSP Feature | Supported | Notes |
 |------------|-----------|-------|
 | script-src | ✅ | Requires `https://www.captcha.eu` |
-| style-src with nonce | ✅ | SDK supports nonces |
-| style-src unsafe-inline | ✅ | Fallback for legacy |
-| worker-src direct loading | ✅ | No blob: required |
-| worker-src blob (legacy) | ✅ | Backward compatible fallback |
+| style-src with nonce | 🚧 | SDK support in development |
+| style-src unsafe-inline | ✅ | Currently required |
+| worker-src | ✅ | Required for background processing |
 | connect-src | ✅ | Required for API calls |
 | frame-src | ✅ | Required for V2 widget |
 | img-src data: | ✅ | Required for images |
-
-## Migration from Legacy CSP
-
-If you previously had `blob:` in your CSP, you can now remove it:
-
-**Before:**
-```
-worker-src https://www.captcha.eu blob:;
-```
-
-**After:**
-```
-worker-src https://www.captcha.eu;
-```
-
-The SDK will automatically use direct worker loading. The blob fallback is maintained for backward compatibility but won't be used with proper CORS headers.
 
 ## Common Patterns
 
