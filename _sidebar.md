@@ -24,6 +24,7 @@
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/10/PHP-logo.svg.png" width=27> PHP](php.md)
   * [<img src="https://www.django-rest-framework.org/img/logo.png" width=27> Django](django-install.md)
 * [:eyes: Testing](testing.md)
+* [:shield: Content Security Policy (CSP)](csp.md)
 * [:octopus: On-Premise Proxy](proxy.md)
 
 <!-- **Dashboard** -->
