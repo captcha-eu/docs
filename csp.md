@@ -2,20 +2,34 @@
 
 ## Overview
 
-Captcha.eu is designed to work with Content Security Policy (CSP) headers, providing strong security while maintaining compatibility with your website's CSP configuration.
+Captcha.eu works with Content Security Policy (CSP) headers. This guide shows you the **practical** CSP configuration that balances security with compatibility.
 
-## Quick Start - Minimum Required CSP
+## Recommended CSP Configuration
 
-The minimum CSP configuration needed for Captcha.eu:
+The recommended CSP configuration scopes permissions specifically to `captcha.eu`:
 
 ```
 Content-Security-Policy:
-  script-src 'self' https://www.captcha.eu 'unsafe-inline';
+  script-src 'self' https://www.captcha.eu;
   style-src 'self' https://www.captcha.eu 'unsafe-inline';
   worker-src https://www.captcha.eu;
   connect-src https://www.captcha.eu;
   frame-src 'self';
   img-src 'self' https://www.captcha.eu data:;
+```
+
+**Key Security Features:**
+- ✅ External scripts only from `captcha.eu` (no other third-party scripts allowed)
+- ✅ API calls only to `captcha.eu` (no data leaks to other domains)
+- ✅ Workers only from `captcha.eu` (no malicious background code)
+- ⚠️ Requires `'unsafe-inline'` for styles (widget styling needs inline CSS)
+
+**Why This Is Secure:**
+Even with `'unsafe-inline'` for styles, your CSP is still very restrictive:
+- **Scripts** can only load from your domain and `captcha.eu`
+- **Network requests** can only go to your domain and `captcha.eu`
+- **Workers** can only load from `captcha.eu`
+- Inline styles are the least risky CSP relaxation (cannot execute code)
 ```
 
 ### Understanding Each Directive
