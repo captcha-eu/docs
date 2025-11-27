@@ -10,7 +10,7 @@ The recommended CSP configuration scopes permissions specifically to `captcha.eu
 
 ```
 Content-Security-Policy:
-  script-src 'self' https://www.captcha.eu;
+  script-src 'self' https://www.captcha.eu 'unsafe-inline';
   style-src 'self' https://www.captcha.eu 'unsafe-inline';
   worker-src https://www.captcha.eu;
   connect-src https://www.captcha.eu;
@@ -22,26 +22,25 @@ Content-Security-Policy:
 - ✅ External scripts only from `captcha.eu` (no other third-party scripts allowed)
 - ✅ API calls only to `captcha.eu` (no data leaks to other domains)
 - ✅ Workers only from `captcha.eu` (no malicious background code)
-- ⚠️ Requires `'unsafe-inline'` for styles (widget styling needs inline CSS)
+- ⚠️ Requires `'unsafe-inline'` for scripts and styles (widget needs inline execution)
 
 **Why This Is Secure:**
-Even with `'unsafe-inline'` for styles, your CSP is still very restrictive:
+Even with `'unsafe-inline'`, your CSP is still very restrictive:
 - **Scripts** can only load from your domain and `captcha.eu`
 - **Network requests** can only go to your domain and `captcha.eu`
 - **Workers** can only load from `captcha.eu`
-- Inline styles are the least risky CSP relaxation (cannot execute code)
-```
+- All permissions are domain-scoped (no wildcards)
 
 ### Understanding Each Directive
 
 | Directive | Value | Why Required |
 |-----------|-------|--------------|
-| `script-src` | `https://www.captcha.eu 'unsafe-inline'` | Load SDK and execute initialization code |
-| `style-src` | `https://www.captcha.eu 'unsafe-inline'` | Widget styling (can use nonce instead) |
+| `script-src` | `'self' https://www.captcha.eu 'unsafe-inline'` | Load SDK and execute initialization code |
+| `style-src` | `'self' https://www.captcha.eu 'unsafe-inline'` | Widget styling and animations |
 | `worker-src` | `https://www.captcha.eu` | Background challenge processing |
 | `connect-src` | `https://www.captcha.eu` | API calls for challenges and validation |
 | `frame-src` | `'self'` | V2 widget iframe rendering |
-| `img-src` | `data:` | Logo and challenge images |
+| `img-src` | `'self' https://www.captcha.eu data:` | Logo and challenge images |
 
 ## Implementation Examples
 
@@ -140,69 +139,6 @@ MIDDLEWARE = [
 />
 ```
 
-## Advanced: Strict CSP with Nonces
-
-For maximum security, you can eliminate `'unsafe-inline'` by using cryptographic nonces.
-
-### Step 1: Generate a Nonce
-
-Generate a unique nonce for each page load:
-
-**Node.js:**
-```javascript
-const crypto = require('crypto');
-const nonce = crypto.randomBytes(16).toString('base64');
-```
-
-**PHP:**
-```php
-$nonce = base64_encode(random_bytes(16));
-```
-
-**Python:**
-```python
-import secrets
-import base64
-nonce = base64.b64encode(secrets.token_bytes(16)).decode('utf-8')
-```
-
-### Step 2: Add Nonce to CSP Header
-
-```javascript
-// Express example
-app.use((req, res, next) => {
-  const nonce = crypto.randomBytes(16).toString('base64');
-  res.locals.nonce = nonce;
-
-  res.setHeader('Content-Security-Policy',
-    `script-src 'self' https://www.captcha.eu; ` +
-    `style-src 'self' https://www.captcha.eu 'nonce-${nonce}'; ` +
-    `worker-src https://www.captcha.eu; ` +
-    `connect-src https://www.captcha.eu; ` +
-    `frame-src 'self'; ` +
-    `img-src 'self' https://www.captcha.eu data:;`
-  );
-
-  next();
-});
-```
-
-### Step 3: Pass Nonce to SDK
-
-Configure the SDK with your nonce:
-
-```html
-<script>
-  window.CaptchaEUSettings = {
-    cspNonce: '<%= nonce %>',  // Server-generated nonce
-    publicSecret: 'YOUR_PUBLIC_KEY'
-  };
-</script>
-<script src="https://www.captcha.eu/sdk/captcha.js"></script>
-```
-
-The SDK will automatically apply the nonce to all dynamically created style elements.
-
 ## Troubleshooting
 
 ### Widget Doesn't Load
@@ -210,7 +146,7 @@ The SDK will automatically apply the nonce to all dynamically created style elem
 **Symptom:** Widget container is empty, no errors in console
 
 **Solution:** Verify all required CSP directives are present:
-- Check `script-src` includes `https://www.captcha.eu`
+- Check `script-src` includes `https://www.captcha.eu 'unsafe-inline'`
 - Check `connect-src` includes `https://www.captcha.eu`
 
 ### CSP Violations for Inline Styles
@@ -218,8 +154,7 @@ The SDK will automatically apply the nonce to all dynamically created style elem
 **Symptom:** Console shows `style-src` violations
 
 **Solution:**
-- Ensure `'unsafe-inline'` is in `style-src` directive, OR
-- Implement nonce-based CSP (see Advanced section above)
+- Ensure `'unsafe-inline'` is in `style-src` directive
 
 ### Worker Loading Errors
 
@@ -227,7 +162,7 @@ The SDK will automatically apply the nonce to all dynamically created style elem
 
 **Solution:**
 - Verify `worker-src https://www.captcha.eu` is in your CSP
-- If issues persist, you may need to add `blob:` for worker loading compatibility
+- Ensure no typos in the domain name
 
 ### Images Not Loading
 
@@ -259,22 +194,17 @@ Open your browser's developer console (F12) and look for:
 Test your CSP without blocking by using report-only mode:
 
 ```
-Content-Security-Policy-Report-Only: script-src 'self' https://www.captcha.eu;
+Content-Security-Policy-Report-Only: script-src 'self' https://www.captcha.eu 'unsafe-inline';
 ```
 
 This will log violations without blocking content, allowing you to test safely.
 
-### 3. Debug Mode
+### 3. Live Demo
 
-Enable debug mode to see detailed CSP status:
+Check out our live demo page to see CSP in action:
 
 ```
-https://your-site.com/?cpt_debug=true
-```
-
-Check console for messages like:
-```
-[CSP] Direct worker loading successful - using strict CSP mode
+https://www.captcha.eu/api/csp_demo/overview
 ```
 
 ## On-Premise / Custom Domain
@@ -292,45 +222,49 @@ Content-Security-Policy:
 
 ## Security Best Practices
 
-### 1. Use Nonces When Possible
+### 1. Use Domain Scoping
 
-Nonces provide the strongest CSP protection by eliminating `'unsafe-inline'`:
+Always scope permissions to the specific domain:
 
 ```
-style-src 'self' https://www.captcha.eu 'nonce-{random}'
+✅ Good: script-src 'self' https://www.captcha.eu
+❌ Bad:  script-src 'self' https://*.eu
 ```
 
 ### 2. Avoid Wildcards
 
 Never use `*` in CSP directives - always specify exact domains:
 
-❌ Bad: `script-src *`
-✅ Good: `script-src 'self' https://www.captcha.eu`
-
-### 3. Generate Fresh Nonces
-
-Always generate a new nonce for each page load:
-
-```javascript
-// ✅ Good - new nonce per request
-const nonce = crypto.randomBytes(16).toString('base64');
-
-// ❌ Bad - reused nonce
-const nonce = 'static-value-12345';
+```
+❌ Bad: script-src *
+✅ Good: script-src 'self' https://www.captcha.eu
 ```
 
-### 4. Test in Staging First
+### 3. Test in Staging First
 
 Always test CSP changes in a staging environment before deploying to production.
+
+### 4. Monitor for Violations
+
+Set up CSP violation reporting to catch issues:
+
+```javascript
+document.addEventListener('securitypolicyviolation', (e) => {
+  console.error('CSP Violation:', {
+    violatedDirective: e.violatedDirective,
+    blockedURI: e.blockedURI,
+    originalPolicy: e.originalPolicy
+  });
+});
+```
 
 ## Compatibility Matrix
 
 | CSP Feature | Supported | Notes |
 |------------|-----------|-------|
-| script-src | ✅ | Requires `https://www.captcha.eu` |
-| style-src with nonce | 🚧 | SDK support in development |
-| style-src unsafe-inline | ✅ | Currently required |
-| worker-src | ✅ | Required for background processing |
+| script-src | ✅ | Requires `https://www.captcha.eu 'unsafe-inline'` |
+| style-src | ✅ | Requires `'unsafe-inline'` |
+| worker-src | ✅ | Direct CORS-based loading (no blob: needed) |
 | connect-src | ✅ | Required for API calls |
 | frame-src | ✅ | Required for V2 widget |
 | img-src data: | ✅ | Required for images |
@@ -376,23 +310,48 @@ For React, Vue, Angular, etc., set CSP via meta tag or server headers:
 </html>
 ```
 
+## FAQ
+
+### Q: Do I need `'unsafe-eval'`?
+
+**A:** No. Captcha.eu SDK does not use `eval()` and does not require `'unsafe-eval'`.
+
+### Q: Why do I need `'unsafe-inline'`?
+
+**A:** The current SDK version requires inline script and style execution for widget initialization and styling. This is scoped to specific domains for security.
+
+### Q: Is `data:` in `img-src` safe?
+
+**A:** Yes. We use `data:` URIs for canvas-based image challenges. This is a standard pattern and poses no security risk in this context.
+
+### Q: Can I tighten the CSP further?
+
+**A:** Not without breaking the SDK. The directives shown are the minimum required for the SDK to function. They provide strong security through domain scoping.
+
+### Q: What about subdomains?
+
+**A:** Currently, only `https://www.captcha.eu` is required. If we add subdomains in the future, we'll update this documentation.
+
+### Q: Does CSP affect performance?
+
+**A:** No. CSP headers add negligible overhead and do not impact SDK performance.
+
 ## Support
 
-If you encounter CSP-related issues:
+If you encounter CSP issues not covered in this guide:
 
-1. Check browser console for specific CSP violation messages
-2. Enable debug mode: `?cpt_debug=true`
-3. Review this guide's troubleshooting section
-4. Contact support: [https://www.captcha.eu/contact](https://www.captcha.eu/contact)
+1. Check the live demo: https://www.captcha.eu/api/csp_demo/overview
+2. Review browser console for specific violation messages
+3. Contact support with CSP violation details
 
-## Further Reading
+## References
 
 - [MDN: Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
-- [CSP Evaluator](https://csp-evaluator.withgoogle.com/)
+- [CSP Evaluator (Google)](https://csp-evaluator.withgoogle.com/)
 - [Captcha.eu Widget Documentation](widget.md)
 - [Captcha.eu Integration Guide](install.md)
 
 ---
 
-**Last Updated:** 2025-11-26
+**Last Updated:** 2025-11-27
 **SDK Version:** Latest (with CORS worker loading)
