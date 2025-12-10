@@ -12,7 +12,7 @@ The recommended CSP configuration scopes permissions specifically to `captcha.eu
 Content-Security-Policy:
   script-src 'self' https://www.captcha.eu 'unsafe-inline';
   style-src 'self' https://www.captcha.eu 'unsafe-inline';
-  worker-src https://www.captcha.eu;
+  worker-src blob:;
   connect-src https://www.captcha.eu;
   frame-src 'self';
   img-src 'self' https://www.captcha.eu data:;
@@ -21,14 +21,14 @@ Content-Security-Policy:
 **Key Security Features:**
 - ✅ External scripts only from `captcha.eu` (no other third-party scripts allowed)
 - ✅ API calls only to `captcha.eu` (no data leaks to other domains)
-- ✅ Workers only from `captcha.eu` (no malicious background code)
+- ✅ Workers use blob: URLs from fetched trusted source (Firefox-compatible)
 - ⚠️ Requires `'unsafe-inline'` for scripts and styles (widget needs inline execution)
 
 **Why This Is Secure:**
 Even with `'unsafe-inline'`, your CSP is still very restrictive:
 - **Scripts** can only load from your domain and `captcha.eu`
 - **Network requests** can only go to your domain and `captcha.eu`
-- **Workers** can only load from `captcha.eu`
+- **Workers** use blob: URLs created from scripts fetched from `captcha.eu`
 - All permissions are domain-scoped (no wildcards)
 
 ### Understanding Each Directive
@@ -37,10 +37,34 @@ Even with `'unsafe-inline'`, your CSP is still very restrictive:
 |-----------|-------|--------------|
 | `script-src` | `'self' https://www.captcha.eu 'unsafe-inline'` | Load SDK and execute initialization code |
 | `style-src` | `'self' https://www.captcha.eu 'unsafe-inline'` | Widget styling and animations |
-| `worker-src` | `https://www.captcha.eu` | Background challenge processing |
+| `worker-src` | `blob:` | Background challenge processing (see note below) |
 | `connect-src` | `https://www.captcha.eu` | API calls for challenges and validation |
 | `frame-src` | `'self'` | V2 widget iframe rendering |
 | `img-src` | `'self' https://www.captcha.eu data:` | Logo and challenge images |
+
+### Why `worker-src blob:` Instead of a Domain?
+
+**Firefox does not support cross-origin Web Workers**, even with proper CORS headers. This is per the HTML Living Standard specification.
+
+**Browser behavior:**
+| Browser | `new Worker("https://captcha.eu/worker.js")` | Result |
+|---------|---------------------------------------------|--------|
+| Chrome | ✅ Works with CORS headers | Direct loading |
+| Firefox | ❌ SecurityError | Always blocked |
+| Safari | ❌ SecurityError | Always blocked |
+
+**Our solution (blob pattern):**
+1. `fetch()` the worker script from `captcha.eu` (respects CORS ✅)
+2. Create a `Blob` from the script content
+3. Create a blob URL via `URL.createObjectURL()`
+4. `new Worker(blobURL)` works because blob URLs are same-origin
+
+This is the **industry-standard workaround** used by Monaco Editor, Ace Editor, and other major projects.
+
+**Security:** The `blob:` directive is safe because:
+- The script content is still fetched from `captcha.eu` with CORS verification
+- `connect-src https://www.captcha.eu` ensures only captcha.eu can be fetched
+- No arbitrary code can be executed - only verified captcha.eu scripts
 
 ## Implementation Examples
 
@@ -48,7 +72,7 @@ Even with `'unsafe-inline'`, your CSP is still very restrictive:
 
 ```nginx
 location / {
-    add_header Content-Security-Policy "script-src 'self' https://www.captcha.eu 'unsafe-inline'; style-src 'self' https://www.captcha.eu 'unsafe-inline'; worker-src https://www.captcha.eu; connect-src https://www.captcha.eu; frame-src 'self'; img-src 'self' https://www.captcha.eu data:;" always;
+    add_header Content-Security-Policy "script-src 'self' https://www.captcha.eu 'unsafe-inline'; style-src 'self' https://www.captcha.eu 'unsafe-inline'; worker-src blob:; connect-src https://www.captcha.eu; frame-src 'self'; img-src 'self' https://www.captcha.eu data:;" always;
 }
 ```
 
@@ -56,7 +80,7 @@ location / {
 
 ```apache
 <IfModule mod_headers.c>
-    Header always set Content-Security-Policy "script-src 'self' https://www.captcha.eu 'unsafe-inline'; style-src 'self' https://www.captcha.eu 'unsafe-inline'; worker-src https://www.captcha.eu; connect-src https://www.captcha.eu; frame-src 'self'; img-src 'self' https://www.captcha.eu data:;"
+    Header always set Content-Security-Policy "script-src 'self' https://www.captcha.eu 'unsafe-inline'; style-src 'self' https://www.captcha.eu 'unsafe-inline'; worker-src blob:; connect-src https://www.captcha.eu; frame-src 'self'; img-src 'self' https://www.captcha.eu data:;"
 </IfModule>
 ```
 
@@ -71,7 +95,7 @@ app.use(
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "https://www.captcha.eu", "'unsafe-inline'"],
       styleSrc: ["'self'", "https://www.captcha.eu", "'unsafe-inline'"],
-      workerSrc: ["https://www.captcha.eu"],
+      workerSrc: ["blob:"],
       connectSrc: ["https://www.captcha.eu"],
       frameSrc: ["'self'"],
       imgSrc: ["'self'", "https://www.captcha.eu", "data:"],
@@ -90,7 +114,7 @@ const securityHeaders = [
     value: [
       "script-src 'self' https://www.captcha.eu 'unsafe-inline'",
       "style-src 'self' https://www.captcha.eu 'unsafe-inline'",
-      "worker-src https://www.captcha.eu",
+      "worker-src blob:",
       "connect-src https://www.captcha.eu",
       "frame-src 'self'",
       "img-src 'self' https://www.captcha.eu data:",
@@ -117,7 +141,7 @@ module.exports = {
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'", "https://www.captcha.eu", "'unsafe-inline'")
 CSP_STYLE_SRC = ("'self'", "https://www.captcha.eu", "'unsafe-inline'")
-CSP_WORKER_SRC = ("https://www.captcha.eu",)
+CSP_WORKER_SRC = ("blob:",)
 CSP_CONNECT_SRC = ("https://www.captcha.eu",)
 CSP_FRAME_SRC = ("'self'",)
 CSP_IMG_SRC = ("'self'", "https://www.captcha.eu", "data:")
@@ -135,7 +159,7 @@ MIDDLEWARE = [
 // In your HTML template or helmet configuration
 <meta
   httpEquiv="Content-Security-Policy"
-  content="script-src 'self' https://www.captcha.eu 'unsafe-inline'; style-src 'self' https://www.captcha.eu 'unsafe-inline'; worker-src https://www.captcha.eu; connect-src https://www.captcha.eu; frame-src 'self'; img-src 'self' https://www.captcha.eu data:;"
+  content="script-src 'self' https://www.captcha.eu 'unsafe-inline'; style-src 'self' https://www.captcha.eu 'unsafe-inline'; worker-src blob:; connect-src https://www.captcha.eu; frame-src 'self'; img-src 'self' https://www.captcha.eu data:;"
 />
 ```
 
@@ -158,11 +182,12 @@ MIDDLEWARE = [
 
 ### Worker Loading Errors
 
-**Symptom:** Console shows worker loading failures
+**Symptom:** Console shows worker loading failures or SecurityError
 
 **Solution:**
-- Verify `worker-src https://www.captcha.eu` is in your CSP
-- Ensure no typos in the domain name
+- Verify `worker-src blob:` is in your CSP
+- Ensure `connect-src https://www.captcha.eu` is present (needed to fetch the worker script)
+- If you see "SecurityError: cross-origin worker" in Firefox, this is expected - our SDK handles it automatically with the blob pattern
 
 ### Images Not Loading
 
@@ -209,13 +234,13 @@ https://www.captcha.eu/api/csp_demo/overview
 
 ## On-Premise / Custom Domain
 
-If you're using Captcha.eu on a custom domain or on-premise installation, replace `https://www.captcha.eu` with your custom domain in all CSP directives:
+If you're using Captcha.eu on a custom domain or on-premise installation, replace `https://www.captcha.eu` with your custom domain in all CSP directives (except `worker-src` which always uses `blob:`):
 
 ```
 Content-Security-Policy:
   script-src 'self' https://captcha.yourdomain.com 'unsafe-inline';
   style-src 'self' https://captcha.yourdomain.com 'unsafe-inline';
-  worker-src https://captcha.yourdomain.com;
+  worker-src blob:;
   connect-src https://captcha.yourdomain.com;
   ...
 ```
@@ -264,8 +289,8 @@ document.addEventListener('securitypolicyviolation', (e) => {
 |------------|-----------|-------|
 | script-src | ✅ | Requires `https://www.captcha.eu 'unsafe-inline'` |
 | style-src | ✅ | Requires `'unsafe-inline'` |
-| worker-src | ✅ | Direct CORS-based loading (no blob: needed) |
-| connect-src | ✅ | Required for API calls |
+| worker-src | ✅ | Requires `blob:` (Firefox compatibility) |
+| connect-src | ✅ | Required for API calls and worker script fetch |
 | frame-src | ✅ | Required for V2 widget |
 | img-src data: | ✅ | Required for images |
 
@@ -280,7 +305,7 @@ add_filter('csp_directives', function($directives) {
     $directives['script-src'][] = "'unsafe-inline'";
     $directives['style-src'][] = 'https://www.captcha.eu';
     $directives['style-src'][] = "'unsafe-inline'";
-    $directives['worker-src'][] = 'https://www.captcha.eu';
+    $directives['worker-src'][] = 'blob:';
     $directives['connect-src'][] = 'https://www.captcha.eu';
     $directives['img-src'][] = 'https://www.captcha.eu';
     $directives['img-src'][] = 'data:';
@@ -299,7 +324,7 @@ For React, Vue, Angular, etc., set CSP via meta tag or server headers:
     <meta http-equiv="Content-Security-Policy"
           content="script-src 'self' https://www.captcha.eu 'unsafe-inline';
                    style-src 'self' https://www.captcha.eu 'unsafe-inline';
-                   worker-src https://www.captcha.eu;
+                   worker-src blob:;
                    connect-src https://www.captcha.eu;
                    frame-src 'self';
                    img-src 'self' https://www.captcha.eu data:;">
@@ -353,5 +378,5 @@ If you encounter CSP issues not covered in this guide:
 
 ---
 
-**Last Updated:** 2025-11-27
-**SDK Version:** Latest (with CORS worker loading)
+**Last Updated:** 2025-12-10
+**SDK Version:** Latest (with blob-based worker loading for Firefox compatibility)
