@@ -9,7 +9,7 @@
 * [:bear: NPM Package](npm.md)
 * [<img src="https://www.captcha.eu/wp-content/uploads/2024/08/5762492.png" width=27> Widget](widget.md)
 * Platforms
-  * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/174881.png" width=27> WordPress](wordpress-install.md)
+  * [<img src="https://www.captcha.eu/wp-content/uploads/2026/03/WordPress-logotype-wmark-1.png" width=27> WordPress](wordpress-install.md)
   * [<img src="https://www.drupal.org/files/druplicon-small.png" width=27> Drupal](drupal-install.md)
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/186_Joomla-512.webp" width=27>  Joomla](joomla-install.md)
   * [<img src="https://wp.captcha.eu/wp-content/uploads/2023/09/44i5w3tet3alslf0b45p4nxxypah.png" width=27> Adobe Commerce](adobecommerce-magento2-install.md)
