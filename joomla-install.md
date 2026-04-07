@@ -10,8 +10,7 @@ In order to enable captcha.eu on your joomla installation follow these steps:
 
 Download the latest version of the plugin at the Joomla Extension Directory: <a href='https://extensions.joomla.org/extension/access-a-security/captcha-eu/'>captcha-eu</a>
 
-> **Joomla 6 compatibility update:** If your installation shows `JFormRulePublickey::test()` type errors while saving plugin keys, use this patched package until JED package refresh is available: <a href='files/joomla/captcha_eu-j6-compat-1.0.2.zip'>captcha_eu-j6-compat-1.0.2.zip</a>
-
+> **Joomla 6 compatibility update:** If your installation shows `JFormRulePublickey::test()` type errors while saving plugin keys, use this patched package until JED package refresh is available: <a href='https://github.com/hjanuschka/joomla-beta/releases/download/v1.0.2-j6-compat/captcha_eu-j6-compat-1.0.2-root.zip'>captcha_eu-j6-compat-1.0.2-root.zip</a>
 ![Captcha.eu @ JED](files/joomla/captcha-eu-joomla-jed1.png)
 
 ## Upload/Enable the extension
@@ -20,7 +19,7 @@ Open your joomla admin interface, go to `System->Install->Extensions`
 ![System-Extension](files/joomla/s1.png)
 
 
-Upload the previously downloaded plugin zip (`captcha_eu-latest.zip` from JED, or the patched `captcha_eu-j6-compat-d741158.zip` above) and enable the extension.
+Upload the previously downloaded plugin zip (`captcha_eu-latest.zip` from JED, or the patched `captcha_eu-j6-compat-1.0.2-root.zip` above) and enable the extension.
 
 ![Enable-Extension](files/joomla/s2.png)
 
