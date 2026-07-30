@@ -51,7 +51,6 @@ Edit `captcha_demo/settings.py` and add your captcha.eu credentials:
 # Captcha.eu Configuration
 CAPTCHA_EU_PUBLIC_KEY = 'your-public-key-here'
 CAPTCHA_EU_REST_KEY = 'your-rest-key-here'
-CAPTCHA_EU_BYPASS_KEY = 'your-bypass-key-here'  # For testing only
 ```
 
 ⚠️ **Security Note**: Never commit your REST key to version control. Consider using environment variables for production:
@@ -249,17 +248,6 @@ Secure checkout forms and product inquiries.
 Validate captcha solutions in Django REST Framework APIs.
 
 ## Testing and Development
-
-### Bypass Key for Testing
-Use your bypass key during development to skip captcha validation:
-
-```python
-def validate_captcha(solution):
-    # Skip validation in development with bypass key
-    if settings.DEBUG and solution == settings.CAPTCHA_EU_BYPASS_KEY:
-        return True
-    # Normal validation...
-```
 
 ### Unit Testing
 Mock the captcha validation in your tests:
