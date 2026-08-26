@@ -52,6 +52,29 @@ To verify everything is working:
 
 ## Plugin Integrations
 
+### Avada Forms
+
+captcha.eu integrates directly with forms created using [Avada Form Builder](https://avada.com/feature/form-builder/). Protection is added automatically to Avada forms, including AJAX submissions; you do not need to add a captcha field in the form builder.
+
+**Enable Avada Protection**
+
+1. Make sure Avada and a captcha.eu plugin version that includes the Avada integration are installed and active.
+2. In WordPress admin, go to **Captcha > Settings**.
+3. Under **Plugin > Avada**, select one protection mode:
+   - **Enable**: Uses invisible protection and validates the submission in the background.
+   - **Use Widget**: Adds a visible captcha.eu widget before the form's submit button.
+4. Click **Save Changes**.
+5. Open an Avada form on your website, submit a test entry, and confirm that the request appears in your captcha.eu dashboard.
+
+Select only one Avada mode. The selected mode applies to all forms built with Avada Form Builder.
+
+**Troubleshooting**
+
+- If Avada is not listed in the plugin settings, update captcha.eu to the latest version.
+- If a form is not protected, confirm that it was created with Avada Form Builder rather than a third-party form plugin embedded in an Avada layout.
+- After changing the integration mode, clear any WordPress page, JavaScript optimization, and CDN caches before testing again.
+- If submissions fail with `Captcha.eu failed`, verify the public key, REST key, and configured domain.
+
 ### WordFence Login Security
 <img src="https://wp.captcha.eu/wp-content/uploads/2023/10/icon-1.svg" height=25 alt="WordFence icon" style="vertical-align: middle;">
 
