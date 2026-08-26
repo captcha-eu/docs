@@ -30,7 +30,7 @@ Navigate to the plugin settings and enter your API keys from the captcha.eu dash
 ### Step 6: Enable Protection
 Select which forms and plugins you want to protect by checking the appropriate boxes. This activates bot protection for your chosen components.
 
-![WordPress Captcha.eu Plugin Settings](files/wp/captcha-wp-plugin-checkboxes1.png)
+![WordPress Captcha.eu Plugin Settings](files/wp/captcha-wp-plugin-checkbox2.png)
 
 ## Success! Your WordPress Site is Protected
 
@@ -97,3 +97,16 @@ Gravity Forms' honeypot feature conflicts with captcha.eu. You must disable it f
 To disable protection on specific forms, add the CSS class `cpt_disable` to the form:
 
 ![WordPress Gravity Forms Settings](files/wp/gravity_cpt_disable.png)
+
+### Avada
+
+captcha.eu supports forms created with the **Avada Form Builder**.
+
+Two modes are available:
+
+**Enable** – Automatically intercepts form submission and validates the captcha in the background. No visible widget is shown to the user.
+
+**Use Widget** – Displays the "Ich bin ein Mensch" widget directly on the form. The submit button remains disabled until the user completes the captcha check.
+
+To enable protection, go to the captcha.eu plugin settings and check **Enable** and/or **Use Widget** under the Avada section.
+
