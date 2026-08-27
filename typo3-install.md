@@ -25,9 +25,25 @@ Add a new Field "captcha.eu" to your form's where you'd like to have the protect
 the label and position of the field is irrelevant, it just needs to be in the form.
 
 
-the field itself is invisible in the frontend.
+by default, the field is invisible in the frontend.
 
 <img src="files/typo3/powermail.png">
+
+### Widget mode
+By default, captcha.eu runs in **invisible mode** and requires no visible interaction from the user. If you'd like to show a visible "I am human" widget instead, you can switch to **widget mode**.
+
+Add these to your TypoScript Constants alongside your keys:
+
+```
+plugin.tx_captchaeu.mode = widget
+plugin.tx_captchaeu.theme = light
+```
+
+- `mode`: `invisible` (default) or `widget`
+- `theme`: `light`, `dark`, or `auto` (only used when `mode` is `widget`)
+
+No other changes are needed - the same "captcha.eu" field you already added to your form will render as a visible widget instead of running invisibly.
+
 
 ### Notes and best practice
 
@@ -77,6 +93,25 @@ You will now see the Captcha.eu-Element inserted into you form.
 ![TYPO3 Form Builder 2](files/typo3/typo3-form-config.png)
 
 After saving, Captcha.eu will now protect any submission.
+
+### Widget mode
+By default, captcha.eu runs in **invisible mode**. To show a visible "I am human" widget instead, switch to **widget mode** directly in the same `Sites Management -> Sites -> Captcha.eu` screen where you entered your keys:
+
+![TYPO3 Site Configuration Widget Mode](files/typo3/typo3-site-config-1.png)
+
+- **Widget mode**: choose "Invisible mode" (default) or "Visible widget"
+- **Widget theme**: choose Light, Dark, or Auto (only used when Widget mode is selected)
+
+No changes to the form itself are needed - the same Captcha.eu element you inserted will render as a visible widget instead of running invisibly.
+
+### Compatibility
+ 
+| Version | TYPO3       | PHP         |
+|---------|-------------|-------------|
+| 2.x     | 12.4 - 14.x | 8.2 - 8.4   |
+| 1.x     | 11.5 - 13.4 | 8.2 - 8.3   |
+ 
+> **Note:** PHP 8.2 or higher is required on both the `2.x` and `1.x` branches. If you are on PHP 8.1 or lower, use the legacy TYPO3 9/10 branch below instead.
 
 ### TYPO3 &lt;11 or PHP&lt;8
 
