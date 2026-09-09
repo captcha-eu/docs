@@ -30,7 +30,9 @@ Navigate to the plugin settings and enter your API keys from the captcha.eu dash
 ### Step 6: Enable Protection
 Select which forms and plugins you want to protect by checking the appropriate boxes. This activates bot protection for your chosen components.
 
-![WordPress Captcha.eu Plugin Settings](files/wp/captcha-wp-plugin-checkbox2.png)
+![WordPress Captcha.eu Plugin Settings](files/wp/captcha-wp-plugin-list1.png)
+
+![WordPress Captcha.eu Plugin Settings](files/wp/captcha-wp-plugin-list2.png)
 
 ## Success! Your WordPress Site is Protected
 
