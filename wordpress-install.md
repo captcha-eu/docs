@@ -56,26 +56,79 @@ To verify everything is working:
 
 ### Avada Forms
 
-captcha.eu integrates directly with forms created using [Avada Form Builder](https://avada.com/feature/form-builder/). Protection is added automatically to Avada forms, including AJAX submissions; you do not need to add a captcha field in the form builder.
+captcha.eu integrates natively with forms created using [Avada Form Builder](https://avada.com/feature/form-builder/).
 
-**Enable Avada Protection**
+The integration provides a dedicated **Captcha.eu** form element. You can add this element to individual Avada forms and configure the protection mode, widget theme, and language.
 
-1. Make sure Avada and a captcha.eu plugin version that includes the Avada integration are installed and active.
-2. In WordPress admin, go to **Captcha > Settings**.
-3. Under **Plugin > Avada**, select one protection mode:
-   - **Enable**: Uses invisible protection and validates the submission in the background.
-   - **Use Widget**: Adds a visible captcha.eu widget before the form's submit button.
-4. Click **Save Changes**.
-5. Open an Avada form on your website, submit a test entry, and confirm that the request appears in your captcha.eu dashboard.
+Unlike the legacy Avada integration, protection is not automatically added to every Avada form. Each form you want to protect must contain the Captcha.eu element.
 
-Select only one Avada mode. The selected mode applies to all forms built with Avada Form Builder.
+#### Configure Global Avada Settings
 
-**Troubleshooting**
+1. Make sure Avada and the captcha.eu WordPress plugin are installed and active.
+2. In your WordPress admin panel, go to **Avada → Options → Forms**.
+3. Find the **captcha.eu** section.
+4. Enable captcha.eu.
+5. Configure the following settings:
 
-- If Avada is not listed in the plugin settings, update captcha.eu to the latest version.
-- If a form is not protected, confirm that it was created with Avada Form Builder rather than a third-party form plugin embedded in an Avada layout.
-- After changing the integration mode, clear any WordPress page, JavaScript optimization, and CDN caches before testing again.
-- If submissions fail with `Captcha.eu failed`, verify the public key, REST key, and configured domain.
+| Setting | Description |
+|---|---|
+| **Enable captcha.eu** | Enables captcha.eu protection for Avada Form Builder. |
+| **Public Key** | Your captcha.eu Public Key, used for the frontend integration. |
+| **REST Key / Secret Key** | Your captcha.eu REST Key, used for server-side validation. Keep it secret! |
+| **Protection Mode** | Sets the default protection mode: Visible Widget or Invisible. |
+| **Language** | Sets the default widget language: English or Deutsch. |
+| **Widget Theme** | Sets the default widget appearance: Auto, Light, or Dark. |
+| **Validation Failure Message** | Defines the message displayed when captcha.eu validation fails. |
+
+6. Save your Avada options.
+
+#### Add the Captcha.eu Element to an Avada Form
+
+1. Open the page containing your Avada form in the Avada Builder.
+2. Edit the form using Avada Form Builder.
+3. Add the **Captcha.eu** element to your form.
+4. Configure the element settings:
+
+**Protection Mode**
+
+- **Global Default:** Uses the protection mode configured in Avada global options.
+- **Widget:** Displays a visible captcha.eu widget on the form.
+- **Invisible:** Validates the visitor in the background without displaying a visible widget.
+
+**Widget Theme**
+
+- **Global Default:** Uses the theme configured in Avada global options.
+- **Auto:** Automatically selects the widget appearance.
+- **Light:** Uses the light theme.
+- **Dark:** Uses the dark theme.
+
+**Language**
+
+- **Global Default:** Uses the language configured in Avada global options.
+- **English:** Displays the widget in English.
+- **Deutsch:** Displays the widget in German.
+
+5. Save the form and update the page.
+
+#### Protection Modes
+
+**Widget Mode**
+
+The visible captcha.eu widget is displayed directly inside the form. The submit button remains disabled until the visitor successfully completes the CAPTCHA.
+
+**Invisible Mode**
+
+No visible CAPTCHA widget is displayed. captcha.eu obtains a solution in the background before the form submission is processed.
+
+
+#### Troubleshooting
+
+- **Captcha.eu element is not available:** Make sure Avada Form Builder and the captcha.eu plugin are active.
+- **Captcha.eu is not enabled:** Check **Avada → Options → Forms** and make sure captcha.eu is enabled.
+- **The element displays a configuration message:** Verify that captcha.eu is enabled and that a valid Public Key is configured.
+- **Form submissions fail:** Verify the Public Key, REST Key, and configured domain in your captcha.eu and Avada settings.
+- **Widget does not appear:** Check that the element's protection mode is set to Widget or that the global default is configured to use Widget mode.
+- **Changes are not reflected:** Clear WordPress page caches, JavaScript optimization caches, and CDN caches before testing again.
 
 ### WordFence Login Security
 <img src="https://wp.captcha.eu/wp-content/uploads/2023/10/icon-1.svg" height=25 alt="WordFence icon" style="vertical-align: middle;">
